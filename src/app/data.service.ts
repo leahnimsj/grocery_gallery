@@ -11,7 +11,7 @@ import 'rxjs/add/observable/empty';
 @Injectable()
 export class DataService {
 
-    private baseUrl = 'http://localhost:1337/'
+    private baseUrl = 'https://grocery-gallery.herokuapp.com/'
 
     found = false;
 
