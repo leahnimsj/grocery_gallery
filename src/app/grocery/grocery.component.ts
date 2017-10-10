@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service'
 
 @Component({
   selector: 'app-grocery',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroceryComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  groceryItems: any[];
+
+  constructor (private dataService: DataService) {}
 
   ngOnInit() {
+    this.displayGroceryItems(); 
+  }
+
+  displayGroceryItems() {
+    this.dataService.getRecords("grocery")
+      .subscribe(
+        groceryItems => this.groceryItems = groceryItems,
+        error =>  this.errorMessage = <any>error);
   }
 
 }

@@ -1,3 +1,58 @@
-<p>
-  grocery-form works!
-</p>
+<section>
+    <ol class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/grocery">Grocery List</a></li>
+        <li class="active">Manage Grocery List</li>
+    </ol>
+    
+    <br/>
+    
+    <a class="btn btn-primary" routerLink="/grocery">Return to Grocery List</a>
+    
+    <h1>Manage Grocery List</h1>
+    
+    <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+    
+    <form (ngSubmit)="saveGrocery(groceryForm)"  #groceryForm="ngForm" class="form-horizontal">
+      <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Grocery List Item</label>
+        <div class="col-sm-10">
+          <input [ngModel]="grocery?.name" ngModel #name="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Banana" required minlength="2" maxlength="255">
+          <span *ngIf="formErrors.name" class="text-danger">
+            {{ formErrors.name }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category" class="col-sm-2 control-label">Grocery List Item Category</label>
+        <div class="col-sm-10">
+          <select name="category" [ngModel]="grocery?.category" ngModel #category="ngModel" class="form-control"  id="category">
+            <option value="Dairy">Dairy</option>
+            <option value="MeatPoultryFish">Meat, Poultry, MeatPoultryFish</option>
+            <option value="Produce">Produce</option>
+            <option value="Grains">Grains</option>
+            <option value="Misc">Miscellaneous</option>
+          </select>
+          <span *ngIf="formErrors.category" class="text-danger">
+            {{ formErrors.category }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+        <div class="col-sm-10">
+          <input [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" type="number" class="form-control" id="quantity" name="quantity"  placeholder="1" required>
+          <span *ngIf="formErrors.quantity" class="text-danger">
+            {{ formErrors.quantity }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" [disabled]="!groceryForm.form.valid" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    </form>
+    </section>
+    

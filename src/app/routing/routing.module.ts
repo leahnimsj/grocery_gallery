@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FridgeComponent } from '../fridge/fridge.component';
 import { FridgeFormComponent } from '../fridge-form/fridge-form.component';
+import { GroceryComponent } from '../grocery/grocery.component';
+import { GroceryFormComponent } from '../grocery-form/grocery-form.component';
  
 
  
@@ -11,7 +13,12 @@ const routes: Routes = [
 
   { path: 'fridge', component: FridgeComponent },
   { path: 'fridge/edit/:id', component: FridgeFormComponent },
-  { path: 'fridge/add', component: FridgeFormComponent }
+  { path: 'fridge/add', component: FridgeFormComponent },
+
+  { path: 'grocery', component: GroceryComponent },
+  { path: 'grocery/edit/:id', component: GroceryFormComponent },
+  { path: 'grocery/add', component: GroceryFormComponent },
+
 
 ]
  
