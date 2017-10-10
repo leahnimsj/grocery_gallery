@@ -16,7 +16,8 @@ export class FridgeFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
 
-  fridgeData;
+  fridge;
+
 
   fridgeForm: NgForm;
 
@@ -25,7 +26,7 @@ export class FridgeFormComponent implements OnInit {
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("fridge", +params['id']))
-      .subscribe(fridge => this.fridgeData = fridge);
+      .subscribe(fridge => this.fridge = fridge);
   }
 
   constructor(
@@ -52,7 +53,7 @@ export class FridgeFormComponent implements OnInit {
           .subscribe(
             fridge => this.successMessage = "Record added succesfully",
             error =>  this.errorMessage = <any>error);
-            this.fridgeData = {};
+            this.fridge = {};
     }
 
   }
