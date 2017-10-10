@@ -89,18 +89,18 @@ export class FridgeFormComponent implements OnInit {
   }
 
   formErrors = {
-    'fridge_name': '',
-    'expiration_date': '',
+    'name': '',
+    'expirationDate': '',
     'category': ''
   };
 
   validationMessages = {
-    'fridge_name': {
+    'name': {
       'required':  'Fridge item name is a required field.',
       'minlength': 'First item cannot be less than 2 characters.',
       'maxlength': 'First item cannot be more than 255 characters.'
     },
-    'expiration_date': {
+    'expirationDate': {
       'required':  'Expiration date is a required field.',
       'pattern': 'Expiratione date should be in the following format: YYYY-MM-DD.'
     },
