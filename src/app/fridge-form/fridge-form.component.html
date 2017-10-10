@@ -1,3 +1,52 @@
-<p>
-  fridge-form works!
-</p>
+<section>
+  <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/fridge">Fridge Inventory</a></li>
+      <li class="active">Manage Fridge Items</li>
+  </ol>
+  
+  <br/>
+  
+  <a class="btn btn-primary" routerLink="/fridge">Return to Fridge Inventory</a>
+  
+  <h1>Manage Fridge Item</h1>
+  
+  <!-- <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message> -->
+  
+  <form (ngSubmit)="saveFridge(fridgeForm)"  #fridgeForm="ngForm" class="form-horizontal">
+    <input [ngModel]="fridge?.fridge_id" ngModel #fridge_id="ngModel" type="hidden" name="fridge_id">
+    <div class="form-group">
+      <label for="fridge_name" class="col-sm-2 control-label">Fridge Item</label>
+      <div class="col-sm-10">
+        <input [ngModel]="fridge?.fridge_name" ngModel #fridge_name="ngModel" type="text" class="form-control" id="fridge_name" name="fridge_name" placeholder="Banana" required minlength="2" maxlength="255">
+        <span *ngIf="formErrors.fridge_name" class="text-danger">
+          {{ formErrors.fridge_name }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="start_date" class="col-sm-2 control-label">Fridge Item Category</label>
+      <div class="col-sm-10">
+        <input [ngModel]="fridge?.category" ngModel #category="ngModel" type="text" class="form-control" id="category" name="category" placeholder="Dairy" required>
+        <span *ngIf="formErrors.category" class="text-danger">
+          {{ formErrors.category }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="expiration_date" class="col-sm-2 control-label">Expiration Date</label>
+      <div class="col-sm-10">
+        <input [ngModel]="fridge?.expiration_date" ngModel #last_name="ngModel" type="text" class="form-control" id="expiration_date" name="expiration_date"  placeholder="2017-10-05" required pattern="(\d{4})-(\d{2})-(\d{2})">
+        <span *ngIf="formErrors.expiration_date" class="text-danger">
+          {{ formErrors.expiration_date }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" [disabled]="!fridgeForm.form.valid" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </form>
+  </section>
+  

@@ -26,33 +26,33 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    // getRecord(endpoint: string, id): Observable<object> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-    //     return this.http.get(apiUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    getRecord(endpoint: string, id): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
 
-    // deleteRecord(endpoint: string, id:number): Observable<object> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-    //     return this.http.delete(apiUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    deleteRecord(endpoint: string, id:number): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.delete(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
 
-    // editRecord(endpoint: string, record:object, id:number): Observable<object> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-    //     return this.http.put(apiUrl, record)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    editRecord(endpoint: string, record:object, id:number): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.put(apiUrl, record)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
 
-    // addRecord(endpoint: string, record:object): Observable<any> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}`;
-    //     console.log(apiUrl)
-    //     return this.http.post(apiUrl, record)
-    //         .map(this.extractData);
-    // }
+    addRecord(endpoint: string, record:object): Observable<any> {
+        let apiUrl = `${this.baseUrl}${endpoint}`;
+        console.log(apiUrl)
+        return this.http.post(apiUrl, record)
+            .map(this.extractData);
+    }
 
 
     private extractData(res: Response) {
