@@ -1,5 +1,3 @@
-// this is copied from student-frontend-angular project
-
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
@@ -19,6 +17,8 @@ export class DataService {
 
     constructor (private http: Http) {}
 
+    // this is the service call for fridge list and grocery list - need to pass in string from components
+
     getRecords(endpoint: string): Observable<any[]> {
         let apiUrl = this.baseUrl+endpoint;
         return this.http.get(apiUrl)
@@ -26,33 +26,33 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    getRecord(endpoint: string, id): Observable<object> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.get(apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+    // getRecord(endpoint: string, id): Observable<object> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    //     return this.http.get(apiUrl)
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    // }
 
-    deleteRecord(endpoint: string, id:number): Observable<object> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.delete(apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+    // deleteRecord(endpoint: string, id:number): Observable<object> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    //     return this.http.delete(apiUrl)
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    // }
 
-    editRecord(endpoint: string, record:object, id:number): Observable<object> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.put(apiUrl, record)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+    // editRecord(endpoint: string, record:object, id:number): Observable<object> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    //     return this.http.put(apiUrl, record)
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    // }
 
-    addRecord(endpoint: string, record:object): Observable<any> {
-        let apiUrl = `${this.baseUrl}${endpoint}`;
-        console.log(apiUrl)
-        return this.http.post(apiUrl, record)
-            .map(this.extractData);
-    }
+    // addRecord(endpoint: string, record:object): Observable<any> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}`;
+    //     console.log(apiUrl)
+    //     return this.http.post(apiUrl, record)
+    //         .map(this.extractData);
+    // }
 
 
     private extractData(res: Response) {
