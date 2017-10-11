@@ -4,6 +4,10 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule } from './material/material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -14,6 +18,8 @@ import { GroceryComponent } from './grocery/grocery.component';
 import { GroceryFormComponent } from './grocery-form/grocery-form.component';
 import { TrashComponent } from './trash/trash.component';
 import { DataService } from './data.service';
+import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
+
 
 @NgModule({
   declarations: [
@@ -24,15 +30,34 @@ import { DataService } from './data.service';
     FridgeFormComponent,
     GroceryComponent,
     GroceryFormComponent,
-    TrashComponent
+    TrashComponent,
+    ManageFridgeComponent
+  
+  
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MaterialModule,
+    BrowserAnimationsModule
+
   ],
-  providers: [DataService],
+
+  entryComponents: [
+    ManageFridgeComponent
+  ],
+
+
+  providers: [DataService, ManageFridgeComponent],
   bootstrap: [AppComponent]
+
 })
+
+
 export class AppModule { }
+
+
+
