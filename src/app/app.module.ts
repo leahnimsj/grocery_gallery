@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { MaterialModule } from './material/material.module';
+import { MatDialogModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
@@ -41,7 +41,7 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
     HttpModule,
     AppRoutingModule,
     FormsModule,
-    MaterialModule,
+    MatDialogModule,
     BrowserAnimationsModule
 
   ],
@@ -51,7 +51,7 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
   ],
 
 
-  providers: [DataService, ManageFridgeComponent],
+  providers: [DataService],
   bootstrap: [AppComponent]
 
 })

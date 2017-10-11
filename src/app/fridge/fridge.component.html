@@ -32,11 +32,13 @@
         <td>{{fridgeItem.color_id}}</td>
         <td class="text-center">
           <!-- <a class="btn btn-primary" [routerLink]="['/fridge/edit/', fridge.id]">Edit</a>&nbsp; -->
-          <button (click)="openManageFormModal()" class="btn btn-danger">Manage Fridge Item</button>
+          <button (click)="openManageFormModal()" class="btn btn-primary">Manage Fridge Item</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+
 
 
 <a class="btn btn-primary" routerLink="/fridge/add">Add Fridge Item</a>

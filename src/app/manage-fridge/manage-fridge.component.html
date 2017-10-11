@@ -1,9 +1,16 @@
 
 
 <h2 mat-dialog-title>Manage Fridge Item</h2>
-<mat-dialog-content>Please select an option
+
+<mat-dialog-content>
+    
+
+{{fridgeItems}}
+
+    <button class="btn btn-success">Mark Complete - nothing wasted</button>
+    <button class="btn btn-warning">Waste</button>
     <a (click)="closeManageFormModal()" class="btn btn-primary" routerLink="/fridge/add">Edit Item</a>
-    <button class="btn btn-warning">send to trash</button><button class="btn btn-warning">completely delete</button>></mat-dialog-content>
+    <button (click)="deleteItemClicked(true)" class="btn btn-danger" mat-button [mat-dialog-close]="'delete'">Delete (wipe out)</button></mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>Exit Manage</button>
+  <button mat-button mat-dialog-close class="btn btn-secondary">Exit Manage Fridge Item</button>
 </mat-dialog-actions>

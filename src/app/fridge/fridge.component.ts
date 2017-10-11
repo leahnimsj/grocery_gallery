@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
 import { ManageFridgeComponent } from '../manage-fridge/manage-fridge.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; //ruben added for dialog
@@ -19,6 +19,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef,  } from '@angular/material'; 
 export class FridgeComponent implements OnInit {
 
   errorMessage: string;
+  successMessage: string;
   fridgeItems: any[];
   dialogRef: MatDialogRef<ManageFridgeComponent> | null; //adding
 
@@ -42,6 +43,11 @@ export class FridgeComponent implements OnInit {
       width: '8900px',
     });
 
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+
+      })
+
     }
 
     closeManageFormModal(){
@@ -49,23 +55,16 @@ export class FridgeComponent implements OnInit {
     }
 
   
-
+    deleteFridgeItem(id:number) {
+      
+         this.dataService.deleteRecord("fridge", id)
+           .subscribe(
+             item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+             error =>  this.errorMessage = <any>error);
+       }
+  
  
 
-  deleteFridgeItem(id:number) {
-    
 
-        //not ready to implement delete yet
-     /*    let dialogRef = this.dialog.open(DeleteConfirmComponent);
-    
-        dialogRef.afterClosed().subscribe(result => {
-          if(result){
-            this.dataService.deleteRecord("student", id)
-              .subscribe(
-                student => {this.successMessage = "Record(s) deleted succesfully"; this.getStudents(); },
-                error =>  this.errorMessage = <any>error);
-          }
-        }); */
-      }
 
 }
