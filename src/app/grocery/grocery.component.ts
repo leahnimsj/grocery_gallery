@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-grocery',
@@ -8,6 +8,7 @@ import { DataService } from '../data.service'
 })
 export class GroceryComponent implements OnInit {
 
+  successMessage: string;
   errorMessage: string;
   groceryItems: any[];
 
@@ -23,5 +24,15 @@ export class GroceryComponent implements OnInit {
         groceryItems => this.groceryItems = groceryItems,
         error =>  this.errorMessage = <any>error);
   }
+
+  deleteGroceryItem(id:number) {
+
+    this.dataService.deleteRecord("grocery", id)
+      .subscribe(
+        grade => {this.successMessage = "Record(s) deleted succesfully"; this.displayGroceryItems(); },
+        error =>  this.errorMessage = <any>error);
+  }
+    
+
 
 }

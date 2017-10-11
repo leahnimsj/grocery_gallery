@@ -24,7 +24,7 @@
           <td>{{groceryItem.quantity}}</td>
           <td class="text-center">
             <a class="btn btn-primary" [routerLink]="['/grocery/edit/', groceryItem.id]">Edit</a>&nbsp;
-            <button (click)="deleteGroceryItem(grocery.id)" class="btn btn-danger">Delete</button>
+            <button (click)="deleteGroceryItem(groceryItem.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
