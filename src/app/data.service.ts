@@ -13,6 +13,7 @@ export class DataService {
 
     private baseUrl = 'https://grocery-gallery.herokuapp.com/'
     private trashUrl = 'https://grocery-gallery.herokuapp.com/trash/'
+    private fridgeUrl = 'https://grocery-gallery.herokuapp.com/fridge/'
 
     found = false;
 
@@ -52,6 +53,13 @@ export class DataService {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)
         return this.http.post(apiUrl, record)
+            .map(this.extractData);
+    }
+
+    manageFridgeRecord(endpoint: string, id:number): Observable<any> {
+        let apiUrl = `${this.fridgeUrl}${id}/${endpoint}`;
+        console.log(apiUrl)
+        return this.http.post(apiUrl, id)
             .map(this.extractData);
     }
 
