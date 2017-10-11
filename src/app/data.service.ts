@@ -12,6 +12,7 @@ import 'rxjs/add/observable/empty';
 export class DataService {
 
     private baseUrl = 'https://grocery-gallery.herokuapp.com/'
+    private trashUrl = 'https://grocery-gallery.herokuapp.com/trash/'
 
     found = false;
 
@@ -54,6 +55,14 @@ export class DataService {
             .map(this.extractData);
     }
 
+
+    getTrash(endpoint: string): Observable<any[]> {
+        let apiUrl = this.trashUrl+endpoint;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+
+    }
 
     private extractData(res: Response) {
         let results = res.json();

@@ -29,7 +29,7 @@ export class GroceryComponent implements OnInit {
 
     this.dataService.deleteRecord("grocery", id)
       .subscribe(
-        grade => {this.successMessage = "Record(s) deleted succesfully"; this.displayGroceryItems(); },
+        grocery => {this.successMessage = "Record(s) deleted succesfully"; this.displayGroceryItems(); },
         error =>  this.errorMessage = <any>error);
   }
     

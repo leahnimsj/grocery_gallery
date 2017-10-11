@@ -5,6 +5,8 @@ import { FridgeComponent } from '../fridge/fridge.component';
 import { FridgeFormComponent } from '../fridge-form/fridge-form.component';
 import { GroceryComponent } from '../grocery/grocery.component';
 import { GroceryFormComponent } from '../grocery-form/grocery-form.component';
+import { TrashComponent } from '../trash/trash.component';
+
  
 
  
@@ -18,6 +20,10 @@ const routes: Routes = [
   { path: 'grocery', component: GroceryComponent },
   { path: 'grocery/edit/:id', component: GroceryFormComponent },
   { path: 'grocery/add', component: GroceryFormComponent },
+
+  { path: 'trash', component: TrashComponent },
+
+
 
 
 ]

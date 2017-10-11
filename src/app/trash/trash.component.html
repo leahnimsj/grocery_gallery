@@ -1,3 +1,24 @@
-<p>
-  trash works!
-</p>
+<ol class="breadcrumb">
+  <li><a routerLink="/trash">trash</a></li>
+  <li class="active">Manage Trash</li>
+</ol>
+
+<h1>Waste List</h1>
+
+
+  <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
+    <thead>
+      <tr>
+        <th>Waste ID</th>
+        <th>Name</th>
+        <th>Expiration Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trashItem of trashItems">
+        <td>{{trashItem.id}}</td>
+        <td>{{trashItem.name}}</td>
+        <td>{{trashItem.expirationDate}}</td>
+      </tr>
+    </tbody>
+  </table>
