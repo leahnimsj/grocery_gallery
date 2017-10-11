@@ -37,14 +37,31 @@ export class FridgeComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
-  openManageFormModal(){
+  openManageFormModal(id:number){
     let dialogRef = this.dialog.open(ManageFridgeComponent, {
       height: '400px',
       width: '8900px',
+      data: id
     });
+
+    
 
       dialogRef.afterClosed().subscribe(result => {
         console.log(result);
+
+        if (result == "delete"){
+          this.deleteFridgeItem(id)
+        } 
+
+        else if (result == "wasted"){
+          this.wastedFridgeItem(id)
+        } 
+
+        else if (result == "finished"){
+          this.finishedFridgeItem(id)
+        } 
+
+      
 
       })
 
@@ -62,6 +79,21 @@ export class FridgeComponent implements OnInit {
              item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
              error =>  this.errorMessage = <any>error);
        }
+
+    wastedFridgeItem(id:number) {
+      this.dataService.manageFridgeRecord("waste", id)
+      .subscribe(
+        item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+        error =>  this.errorMessage = <any>error);
+    }
+
+    finishedFridgeItem(id:number) {
+      this.dataService.manageFridgeRecord("finish", id)
+      .subscribe(
+        item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+        error =>  this.errorMessage = <any>error);
+    }
+
   
  
 
