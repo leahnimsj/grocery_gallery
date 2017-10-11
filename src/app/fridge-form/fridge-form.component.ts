@@ -43,8 +43,8 @@ export class FridgeFormComponent implements OnInit {
   }
 
   saveFridge(fridge: NgForm){
-    if(typeof fridge.value.fridge_id === "number"){
-      this.dataService.editRecord("fridge", fridge.value, fridge.value.fridge_id)
+    if(typeof fridge.value.id === "number"){
+      this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
           .subscribe(
             fridge => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);
