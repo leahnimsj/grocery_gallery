@@ -33,7 +33,6 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
     TrashComponent,
     ManageFridgeComponent
   
-  
 
   ],
   imports: [

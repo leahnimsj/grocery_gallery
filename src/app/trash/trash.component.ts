@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-trash',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrashComponent implements OnInit {
 
-  constructor() { }
+  successMessage: string;
+  errorMessage: string;
+  trashItems: any[];
+
+  constructor (private dataService: DataService) {}
 
   ngOnInit() {
+    this.displayTrashItems(); 
+  }
+
+  displayTrashItems() {
+    this.dataService.getTrash("wasted")
+      .subscribe(
+        trashItems => this.trashItems = trashItems,
+        error =>  this.errorMessage = <any>error);
   }
 
 }
