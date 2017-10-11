@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 import { MatDialogModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -41,7 +40,7 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
     AppRoutingModule,
     FormsModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
   ],
 

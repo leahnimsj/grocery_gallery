@@ -41,9 +41,13 @@ export class FridgeComponent implements OnInit {
     let dialogRef = this.dialog.open(ManageFridgeComponent, {
       height: '400px',
       width: '8900px',
-      data: id
+      data: { editId: id }
+
     });
 
+ 
+
+    console.log(id);
     
 
       dialogRef.afterClosed().subscribe(result => {
