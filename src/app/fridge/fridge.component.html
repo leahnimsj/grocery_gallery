@@ -8,8 +8,10 @@
 </ol>
 
 
-<h1>Fridge Inventory</h1>
 
+<mat-icon svgIcon="test"></mat-icon>
+
+<h1>Fridge Inventory</h1>
 
   <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
     <thead>
@@ -18,7 +20,7 @@
         <th>Name</th>
         <th>Category</th>
         <th>Expiration Date</th>
-        <th>Color ID</th>
+        <th>Food Freshness</th>
         <th>Management of Item</th>
       </tr>
     </thead>
@@ -28,7 +30,12 @@
         <td>{{fridgeItem.name}}</td>
         <td>{{fridgeItem.category}}</td>
         <td>{{fridgeItem.expirationDate}}</td>
-        <td>{{fridgeItem.color_id}}</td>
+        <td class="text-center">
+          <mat-icon *ngIf="fridgeItem.level==1" svgIcon="green"></mat-icon>
+          <mat-icon *ngIf="fridgeItem.level==2" svgIcon="yellow"></mat-icon>
+          <mat-icon *ngIf="fridgeItem.level==3" svgIcon="red"></mat-icon>
+          <mat-icon *ngIf="fridgeItem.level==4" svgIcon="black"></mat-icon>
+        </td>
         <td class="text-center">
           <!-- <a class="btn btn-primary" [routerLink]="['/fridge/edit/', fridge.id]">Edit</a>&nbsp; -->
           <button (click)="openManageFormModal(fridgeItem.id)" class="btn btn-primary">Manage Fridge Item</button>
