@@ -6,25 +6,30 @@
   <li class="active">Grocery List</li>
   <li><a routerLink="/grocery/add">Add Grocery Item</a></li>
 </ol>
-  <h1>Grocery List</h1>
-  
-  
-    <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
+
+<div id="groceryContent" class="content">
+    <div id="content">
+      <p id="grocery">Grocery List</p>
+      <p id="groceryText">Manage your grocery list here!</p>
+    </div>  
+      <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
+  </div>
+
+  <div class="foodTable">
+    <table class="table table-bordered" id="dataTable" style="width:100%">
       <thead>
         <tr>
-          <th>Grocery ID</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
-          <th>Manage Grocery List</th>
+          <th class="text-center">Food</th>
+          <th class="text-center">Category</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Manage</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let groceryItem of groceryItems">
-          <td>{{groceryItem.id}}</td>
-          <td>{{groceryItem.name}}</td>
-          <td>{{groceryItem.category}}</td>
-          <td>{{groceryItem.quantity}}</td>
+          <td class="text-center">{{groceryItem.name}}</td>
+          <td class="text-center">{{groceryItem.category}}</td>
+          <td class="text-center">{{groceryItem.quantity}}</td>
           <td class="text-center">
             <a class="btn btn-primary" [routerLink]="['/grocery/edit/', groceryItem.id]">Edit</a>&nbsp;
             <button (click)="deleteGroceryItem(groceryItem.id)" class="btn btn-danger">Delete</button>
@@ -32,6 +37,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
   
   
   <a class="btn btn-primary" routerLink="/grocery/add">Add Grocery Item</a>
