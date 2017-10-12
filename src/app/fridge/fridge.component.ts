@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
 import { ManageFridgeComponent } from '../manage-fridge/manage-fridge.component';
+import {DomSanitizer} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; //ruben added for dialog
-
-import { MatDialog, MatDialogConfig, MatDialogRef,  } from '@angular/material'; //ruben added
+import { MatDialog, MatDialogConfig, MatDialogRef, MatIconModule, MatIconRegistry } from '@angular/material'; //ruben added
 
 
 @Component({
@@ -14,8 +14,6 @@ import { MatDialog, MatDialogConfig, MatDialogRef,  } from '@angular/material'; 
 
 })
 
-
-
 export class FridgeComponent implements OnInit {
 
   errorMessage: string;
@@ -24,11 +22,23 @@ export class FridgeComponent implements OnInit {
   dialogRef: MatDialogRef<ManageFridgeComponent> | null; //adding
 
 
-  constructor (private dataService: DataService, public dialog: MatDialog) {}
+  constructor (
+    private dataService: DataService, 
+    public dialog: MatDialog,
+    public iconRegistry: MatIconRegistry, 
+    private sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon('green', sanitizer.bypassSecurityTrustResourceUrl('assets/images/checked.svg'))
+    iconRegistry.addSvgIcon('red', sanitizer.bypassSecurityTrustResourceUrl('assets/images/warning.svg'))
+    iconRegistry.addSvgIcon('yellow', sanitizer.bypassSecurityTrustResourceUrl('assets/images/play-button.svg'))
+    iconRegistry.addSvgIcon('black', sanitizer.bypassSecurityTrustResourceUrl('assets/images/delete.svg'))
+  }
 
   ngOnInit() {
     this.displayFridgeItems(); 
   }
+
+
 
   displayFridgeItems() {
     this.dataService.getRecords("fridge")
@@ -46,6 +56,7 @@ export class FridgeComponent implements OnInit {
     });
 
  
+  
 
     console.log(id);
     
