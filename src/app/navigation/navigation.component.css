@@ -1,0 +1,17 @@
+#navbar {
+    font-family: 'Lily Script One', cursive;
+    color: lavenderblush;
+    font-size: 20px;
+}
+
+
+.navbar-brand {
+    font-family: 'cousine';
+    font-size: 50px;
+}
+
+#navContainer {
+    background-color: white;
+    border: none;
+    padding: 5px;
+}
