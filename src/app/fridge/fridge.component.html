@@ -2,10 +2,13 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 <ol class="breadcrumb">
   <li class="active">Fridge Inventory</li>
   <li><a routerLink="/fridge/add">Add Fridge Item</a></li>
 </ol> -->
+<br>
 <br>
 <br>
 <br>
@@ -40,7 +43,7 @@
         </td>
         <td class="text-center">{{fridgeItem.expirationDate}}</td>
         <td class="text-center">
-          <button class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
+          <button title="Edit food item" class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
           <button class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
           <button class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
           <button class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>

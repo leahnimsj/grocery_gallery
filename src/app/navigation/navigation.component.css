@@ -1,6 +1,5 @@
 #navbar {
     font-family: 'Lily Script One', cursive;
-    color: lavenderblush;
     font-size: 20px;
 }
 
@@ -8,10 +7,24 @@
 .navbar-brand {
     font-family: 'cousine';
     font-size: 50px;
+    color: #fde0aa;
 }
 
 #navContainer {
     background-color: white;
     border: none;
-    padding: 5px;
+    padding: 15px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: powderblue;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: goldenrod;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+    color: purple;
+    background-color: yellow;
 }

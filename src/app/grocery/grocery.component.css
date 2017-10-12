@@ -1,11 +1,12 @@
 #grocery {
     font-family: 'Lily Script One', cursive;
     font-size: 80px;
+    color:hsla(125, 68%, 34%, 0.741);
 }
 
 #foodImg {
     width: 400px;
-    height: 400px;
+    height: 300px;
     padding: 0px;
     margin: 0px;
 }
@@ -22,6 +23,9 @@
     flex-direction: row;
     align-items: center;
     margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 #content {

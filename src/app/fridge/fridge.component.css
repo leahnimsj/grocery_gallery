@@ -3,6 +3,7 @@
 #fridge {
     font-family: 'Lily Script One', cursive;
     font-size: 80px;
+    color:hsla(125, 68%, 34%, 1.0);
 }
 
 #foodImg {
@@ -25,6 +26,8 @@
     align-items: center;
     margin: 0px;
     margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 #content {
