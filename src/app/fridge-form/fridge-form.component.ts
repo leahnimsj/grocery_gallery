@@ -23,6 +23,24 @@ export class FridgeFormComponent implements OnInit {
 
   @ViewChild('fridgeForm') currentForm: NgForm;
 
+  getTodaysDate(){
+    let today = new Date();
+    let dd:any = today.getDate();
+    let mm:any = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
+    
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+    
+    return yyyy + '-' + mm + '-' + dd
+  }
+  
+
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("fridge", +params['id']))
@@ -92,7 +110,8 @@ export class FridgeFormComponent implements OnInit {
   formErrors = {
     'name': '',
     'expirationDate': '',
-    'category': ''
+    'category': '',
+    'purchasedDate': ''
   };
 
   validationMessages = {
@@ -103,7 +122,10 @@ export class FridgeFormComponent implements OnInit {
     },
     'expirationDate': {
       'required':  'Expiration date is a required field.',
-      'pattern': 'Expiratione date should be in the following format: YYYY-MM-DD.'
+      'pattern': 'Expiration date should be in the following format: YYYY-MM-DD.'
+    },
+    'purchasedDate': {
+      'pattern': 'Purchased date should be in the following format: YYYY-MM-DD.'
     },
     'category': {
       'required': 'Food category is a required field.'
