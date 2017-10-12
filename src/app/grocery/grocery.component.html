@@ -31,6 +31,7 @@
           <td class="text-center">{{groceryItem.category}}</td>
           <td class="text-center">{{groceryItem.quantity}}</td>
           <td class="text-center">
+            <button (click)="sendGroceryToFridge(groceryItem.id)" class="btn btn-warning">Fridge</button>
             <a class="btn btn-primary" [routerLink]="['/grocery/edit/', groceryItem.id]">Edit</a>&nbsp;
             <button (click)="deleteGroceryItem(groceryItem.id)" class="btn btn-danger">Delete</button>
           </td>
