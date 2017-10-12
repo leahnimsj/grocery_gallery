@@ -7,7 +7,7 @@
 
 #foodImg {
     width: 400px;
-    height: 400px;
+    height: 300px;
     padding: 0px;
     margin: 0px;
 }
@@ -24,6 +24,7 @@
     flex-direction: row;
     align-items: center;
     margin: 0px;
+    margin-bottom: 20px;
 }
 
 #content {
@@ -36,4 +37,9 @@
     background-color: white;
     font-family: 'Cousine';
 
+}
+
+.manageButtons {
+    background-color: white;
+    border: none;
 }

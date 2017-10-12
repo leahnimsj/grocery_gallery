@@ -28,10 +28,13 @@ export class FridgeComponent implements OnInit {
     public iconRegistry: MatIconRegistry, 
     private sanitizer: DomSanitizer
   ) {
-    iconRegistry.addSvgIcon('green', sanitizer.bypassSecurityTrustResourceUrl('assets/images/checked.svg'))
+    iconRegistry.addSvgIcon('complete', sanitizer.bypassSecurityTrustResourceUrl('assets/images/checked.svg'))
     iconRegistry.addSvgIcon('red', sanitizer.bypassSecurityTrustResourceUrl('assets/images/warning.svg'))
     iconRegistry.addSvgIcon('yellow', sanitizer.bypassSecurityTrustResourceUrl('assets/images/play-button.svg'))
     iconRegistry.addSvgIcon('black', sanitizer.bypassSecurityTrustResourceUrl('assets/images/delete.svg'))
+    iconRegistry.addSvgIcon('edit', sanitizer.bypassSecurityTrustResourceUrl('assets/images/edit.svg'))
+    iconRegistry.addSvgIcon('remove', sanitizer.bypassSecurityTrustResourceUrl('assets/images/close.svg'))
+    iconRegistry.addSvgIcon('green', sanitizer.bypassSecurityTrustResourceUrl('assets/images/cabbage.svg'))
   }
 
   ngOnInit() {
