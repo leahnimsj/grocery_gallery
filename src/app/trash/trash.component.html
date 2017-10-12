@@ -5,6 +5,7 @@
 <ol class="breadcrumb">
   <li class="active">Waste Bin</li>
 </ol>
+
 <div id="trashContent" class="content">
     <div id="content">
       <p id="trash">Your Trash</p>
@@ -12,21 +13,39 @@
     </div>  
       <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
   </div>
+  <h1 class="trashHeadings">Wasted food</h1>
   <div class="foodTable">
   <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
     <thead>
       <tr>
-        <th>Waste ID</th>
         <th>Name</th>
         <th>Expiration Date</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let trashItem of trashItems">
-        <td>{{trashItem.id}}</td>
         <td>{{trashItem.name}}</td>
         <td>{{trashItem.expirationDate}}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<h1 class="trashHeadings">Food you finished before expiration</h1>
+
+<div class="foodTable">
+    <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let finishItem of finishItems">
+            <td>{{finishItem.name}}</td>
+            <td>{{finishItem.expirationDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

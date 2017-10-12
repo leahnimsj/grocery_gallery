@@ -32,6 +32,13 @@ export class GroceryComponent implements OnInit {
         grocery => {this.successMessage = "Record(s) deleted succesfully"; this.displayGroceryItems(); },
         error =>  this.errorMessage = <any>error);
   }
+
+  sendGroceryToFridge(id:number) {
+    this.dataService.manageGroceryRecord("fridge", id)
+      .subscribe(
+        item => {this.successMessage = "Record(s) moved to fridge succesfully"; this.displayGroceryItems(); },
+        error =>  this.errorMessage = <any>error);
+  }
     
 
 
