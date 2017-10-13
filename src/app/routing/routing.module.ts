@@ -15,7 +15,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 
  
 const routes: Routes = [
-  { path: '', redirectTo: '/fridge', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: 'fridge', component: FridgeComponent },
   { path: 'fridge/edit/:id', component: FridgeFormComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signUp', component: SignUpComponent }
+  { path: 'signup', component: SignUpComponent }
 
 ]
  
