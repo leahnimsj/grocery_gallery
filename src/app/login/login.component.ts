@@ -5,6 +5,7 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 import { DataService } from '../data.service';
+import { SessionDataService } from '../session-data.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private sessionDataService: SessionDataService
   ) {}
 
   @ViewChild('loginForm') currentForm: NgForm;
@@ -34,7 +36,13 @@ export class LoginComponent implements OnInit {
       console.log(login.value)
       this.dataService.addRecord("login", login.value)
           .subscribe(
-            login => this.successMessage = "Record added succesfully",
+            login => {
+              this.successMessage = "Record added succesfully";
+              // on success of login method, we are storing a cookie with the response from login
+              localStorage.setItem("user", login);
+              // this is broadcasting to everyone listening to the sessionDataService that something changed - specifically now userChanged = true
+              this.sessionDataService.userChanged.next(true);
+            },  
             error =>  this.errorMessage = <any>error);
             this.login = {};
 

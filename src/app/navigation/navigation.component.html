@@ -5,9 +5,12 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-              <li routerLinkActive="active"><a routerLink="/fridge">fridge & pantry</a></li>
-              <li routerLinkActive="active"><a routerLink="/grocery" >grocery list</a></li>
-              <li routerLinkActive="active"><a routerLink="/trash" >trash</a></li>
+              <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/fridge">fridge & pantry</a></li>
+              <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/grocery" >grocery</a></li>
+              <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/trash" >trash</a></li>
+              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/signup">Signup</a></li>
+              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+              <li *ngIf="userLoggedIn" routerLinkActive="active"><a  (click)="logOut()" routerLink="/">Logout</a></li>
           </ul>
       </div><!--/.nav-collapse -->
   </div>
