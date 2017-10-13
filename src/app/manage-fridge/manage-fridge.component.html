@@ -9,7 +9,7 @@
 
     <button class="btn btn-success" mat-button [mat-dialog-close]="'finished'">Mark Complete - nothing wasted</button>
     <button class="btn btn-warning" mat-button [mat-dialog-close]="'wasted'">Waste</button>
-    <a class="btn btn-primary" (click)="closeManageFormModal()" routerLink="/fridge/edit/{{data.editId}}">Edit Item</a>
+    <a class="btn btn-primary" routerLink="/fridge/edit/{{data.editId}}">Edit Item</a>
     <button class="btn btn-danger" mat-button [mat-dialog-close]="'delete'">Delete (wipe out)</button></mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close class="btn btn-secondary">Exit Manage Fridge Item</button>
