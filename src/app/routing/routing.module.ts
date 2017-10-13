@@ -7,6 +7,10 @@ import { GroceryComponent } from '../grocery/grocery.component';
 import { GroceryFormComponent } from '../grocery-form/grocery-form.component';
 import { TrashComponent } from '../trash/trash.component';
 
+import { HomePageComponent } from '../home-page/home-page.component';
+import { LoginComponent } from '../login/login.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+
  
 
  
@@ -23,8 +27,9 @@ const routes: Routes = [
 
   { path: 'trash', component: TrashComponent },
 
-
-
+  { path: 'home', component: HomePageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signUp', component: SignUpComponent }
 
 ]
  

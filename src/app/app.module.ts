@@ -19,6 +19,9 @@ import { GroceryFormComponent } from './grocery-form/grocery-form.component';
 import { TrashComponent } from './trash/trash.component';
 import { DataService } from './data.service';
 import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
     GroceryComponent,
     GroceryFormComponent,
     TrashComponent,
-    ManageFridgeComponent
+    ManageFridgeComponent,
+    HomePageComponent,
+    LoginComponent,
+    SignUpComponent
   
 
   ],
