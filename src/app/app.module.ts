@@ -22,6 +22,7 @@ import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SessionDataService } from './session-data.service';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
   providers: [
     DataService,
-    MatIconRegistry
+    MatIconRegistry,
+    SessionDataService
    ],
   bootstrap: [AppComponent]
 
