@@ -2,9 +2,13 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 
 body {
-    background-image: url(../assets/images/bg-pattern2.png)
+    background-image: url(../assets/images/bg-pattern2.png);
 }
 
 .foodTable {
     background-color: white;
+}
+
+#divdiv {
+    padding-bottom: 500px;
 }

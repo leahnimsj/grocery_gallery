@@ -16,6 +16,9 @@ export class DataService {
     private fridgeUrl = 'https://grocery-gallery.herokuapp.com/fridge/'
     private groceryUrl = 'https://grocery-gallery.herokuapp.com/grocery/'
     private finishUrl = 'https://grocery-gallery.herokuapp.com/finish/'
+    private options = {
+        withCredentials: true
+    }
 
     found = false;
 
@@ -25,28 +28,29 @@ export class DataService {
 
     getRecords(endpoint: string): Observable<any[]> {
         let apiUrl = this.baseUrl+endpoint;
-        return this.http.get(apiUrl)
+
+        return this.http.get(apiUrl, this.options)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     getRecord(endpoint: string, id): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.get(apiUrl)
+        return this.http.get(apiUrl, this.options)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     deleteRecord(endpoint: string, id:number): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.delete(apiUrl)
+        return this.http.delete(apiUrl, this.options)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     editRecord(endpoint: string, record:object, id:number): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.put(apiUrl, record)
+        return this.http.put(apiUrl, record, this.options)
             .map(this.extractData)
             .catch(this.handleError);
     }
@@ -54,28 +58,28 @@ export class DataService {
     addRecord(endpoint: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, record)
+        return this.http.post(apiUrl, record, this.options)
             .map(this.extractData);
     }
 
     manageFridgeRecord(endpoint: string, id:number): Observable<any> {
         let apiUrl = `${this.fridgeUrl}${id}/${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, id)
+        return this.http.post(apiUrl, id, this.options)
             .map(this.extractData);
     }
 
     manageGroceryRecord(endpoint: string, id:number): Observable<any> {
         let apiUrl = `${this.groceryUrl}${id}/${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, id)
+        return this.http.post(apiUrl, id, this.options)
             .map(this.extractData);
     }
 
 
     getTrash(endpoint: string): Observable<any[]> {
         let apiUrl = this.trashUrl+endpoint;
-        return this.http.get(apiUrl)
+        return this.http.get(apiUrl, this.options)
             .map(this.extractData)
             .catch(this.handleError);
 
