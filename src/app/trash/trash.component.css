@@ -44,3 +44,10 @@
     font-family: 'Alfa Slab One';
     font-size: 30px;
 }
+
+:host {
+    display: block;
+    background-image: url(../../assets/images/bg-pattern2.png);
+    /* background-size: cover; */
+    min-height: calc(100vh - 102px);
+}
