@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input, Output } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -7,6 +7,10 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./grocery-email-form.component.css']
 })
 export class GroceryEmailFormComponent implements OnInit {
+
+  name;
+
+  sharedEmail = 'go@gmail.com'; 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 

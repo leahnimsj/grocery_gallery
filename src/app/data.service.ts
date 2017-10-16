@@ -16,6 +16,7 @@ export class DataService {
     private fridgeUrl = 'https://grocery-gallery.herokuapp.com/fridge/'
     private groceryUrl = 'https://grocery-gallery.herokuapp.com/grocery/'
     private finishUrl = 'https://grocery-gallery.herokuapp.com/finish/'
+    private mailUrl = 'https://grocery-gallery.herokuapp.com/grocery/mail'
     private options = {
         withCredentials: true
     }
@@ -88,6 +89,13 @@ export class DataService {
     getTrash(endpoint: string): Observable<any[]> {
         let apiUrl = this.trashUrl+endpoint;
         return this.http.get(apiUrl, this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
+
+    }
+
+    postEmail(record:string): Observable<any> {
+        return this.http.post(this.mailUrl, record, this.options)
             .map(this.extractData)
             .catch(this.handleError);
 
