@@ -57,16 +57,20 @@ export class GroceryComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
-  // //email
-  // sendEmail(req, resp){
-    
-  
-  //    this.emailservice.sendEmail2();
- 
-  //  }
+ emailRecord: string;
 
 
-  //send grocry list modal
+  sendEmail(email:string) {
+     // var obj = JSON.parse(email);
+
+       alert(email)
+       this.dataService.postEmail(email)
+        .subscribe(
+          email => {this.successMessage = "email sent"},
+          error => this.errorMessage = <any>error
+        );
+     }
+
   openLoginModal(){
 
     let dialogRef = this.dialog.open(GroceryEmailFormComponent, {
@@ -74,7 +78,24 @@ export class GroceryComponent implements OnInit {
       width: '600px',
     });
 
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+
+      if (result){
+        this.emailRecord = '{"email": "' + result + '"}'
+        this.sendEmail(this.emailRecord);
+      } 
+
+
+    
+
+    })
+
   }
+
+
     
 
 
