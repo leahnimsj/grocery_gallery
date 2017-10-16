@@ -1,5 +1,5 @@
 body {
-    background-color: white !important;
+    /* background-color: white !important; */
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -31,4 +31,8 @@ button {
 #introText {
     font-family: cousine;
 
+}
+
+:host {
+    background-color: white;
 }

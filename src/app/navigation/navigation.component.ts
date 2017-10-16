@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionDataService } from '../session-data.service';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -21,7 +22,8 @@ export class NavigationComponent implements OnInit {
   constructor(
     // injecting our data service into the nav component so that before nav renders it will run session data service
     private dataService: SessionDataService,
-    private originalDataService: DataService
+    private originalDataService: DataService,
+    private router: Router
   ) { 
     this.dataService.userChanged.subscribe(isLoggedIn => {
       (this.userLoggedIn = isLoggedIn)
@@ -39,10 +41,14 @@ export class NavigationComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem('user')
-    this.originalDataService.logOut("logout")
+    this.originalDataService.logOut("log-out")
         .subscribe(
           logout => {
             this.successMessage = "Thanks for visiting!";
+            // navigate to home on success
+            this.router.navigate(['/home']);
+            // alert dataservice that userChanged is now equal to false
+            this.dataService.userChanged.next(false)
           },  
           error =>  this.errorMessage = <any>error);
           this.logout = {};

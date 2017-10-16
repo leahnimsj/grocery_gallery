@@ -10,7 +10,7 @@
               <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/trash" >trash</a></li>
               <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/signup">Signup</a></li>
               <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
-              <li *ngIf="userLoggedIn"><a  (click)="logOut()" routerLink="/home">Logout</a></li>
+              <li *ngIf="userLoggedIn"><a  (click)="logOut()">Logout</a></li>
           </ul>
       </div><!--/.nav-collapse -->
   </div>
