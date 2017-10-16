@@ -23,6 +23,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SessionDataService } from './session-data.service';
+import { EmailService } from './email.service';
+import { GroceryEmailFormComponent } from './grocery-email-form/grocery-email-form.component'; //added email service
+
+
 
 
 @NgModule({
@@ -38,7 +42,8 @@ import { SessionDataService } from './session-data.service';
     ManageFridgeComponent,
     HomePageComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    GroceryEmailFormComponent
   
 
   ],
@@ -55,14 +60,16 @@ import { SessionDataService } from './session-data.service';
   ],
 
   entryComponents: [
-    ManageFridgeComponent
+    ManageFridgeComponent, GroceryEmailFormComponent
   ],
 
 
   providers: [
     DataService,
     MatIconRegistry,
-    SessionDataService
+    SessionDataService,
+    EmailService,
+    GroceryEmailFormComponent
    ],
   bootstrap: [AppComponent]
 

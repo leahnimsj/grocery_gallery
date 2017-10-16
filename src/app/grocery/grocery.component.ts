@@ -1,5 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { EmailService } from '../email.service';
+
+
+
+//modal
+import { GroceryEmailFormComponent} from '../grocery-email-form/grocery-email-form.component';
+import { MatDialogModule } from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
+
+
+import {MatIconModule, MatIconRegistry } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @Component({
   selector: 'app-grocery',
@@ -12,7 +27,9 @@ export class GroceryComponent implements OnInit {
   errorMessage: string;
   groceryItems: any[];
 
-  constructor (private dataService: DataService) {}
+
+
+  constructor (private dataService: DataService, private emailservice:EmailService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.displayGroceryItems(); 
@@ -38,6 +55,25 @@ export class GroceryComponent implements OnInit {
       .subscribe(
         item => {this.successMessage = "Record(s) moved to fridge succesfully"; this.displayGroceryItems(); },
         error =>  this.errorMessage = <any>error);
+  }
+
+  // //email
+  // sendEmail(req, resp){
+    
+  
+  //    this.emailservice.sendEmail2();
+ 
+  //  }
+
+
+  //send grocry list modal
+  openLoginModal(){
+
+    let dialogRef = this.dialog.open(GroceryEmailFormComponent, {
+      height: '400px',
+      width: '600px',
+    });
+
   }
     
 
