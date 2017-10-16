@@ -23,21 +23,16 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
-  // sendSignUpForm(fridge: NgForm){
-  //   if(typeof fridge.value.id === "number"){
-  //     this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
-  //         .subscribe(
-  //           fridge => this.successMessage = "Record updated succesfully",
-  //           error =>  this.errorMessage = <any>error);
-  //   }else{
-  //     this.dataService.addRecord("fridge", fridge.value)
-  //         .subscribe(
-  //           fridge => this.successMessage = "Record added succesfully",
-  //           error =>  this.errorMessage = <any>error);
-  //           this.fridge = {};
-  //   }
+  sendSignUpForm(signUp: NgForm){
+ 
+      this.dataService.addRecord("signup", signUp.value)
+          .subscribe(
+            signUp => this.successMessage = "Signup Record added succesfully",
+            error =>  this.errorMessage = <any>error);
+            this.signUp = {};
+    
 
-  // }
+  }
 
 
   clickButtonConsole(signUp: NgForm){

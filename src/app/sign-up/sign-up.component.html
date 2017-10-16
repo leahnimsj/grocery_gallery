@@ -10,7 +10,7 @@
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<form (ngSubmit)="clickButtonConsole(signUpForm)"  #signUpForm="ngForm" class="form-horizontal">
+<form (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm" class="form-horizontal">
  
   <div class="form-group">
       <label for="firstName" class="col-sm-2 control-label">First Name</label>
