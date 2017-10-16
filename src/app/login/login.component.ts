@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 
@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private location: Location,
-    private sessionDataService: SessionDataService
+    private sessionDataService: SessionDataService,
+    private router: Router
   ) {}
 
   @ViewChild('loginForm') currentForm: NgForm;
@@ -42,8 +43,10 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("user", login);
               // this is broadcasting to everyone listening to the sessionDataService that something changed - specifically now userChanged = true
               this.sessionDataService.userChanged.next(true);
+              // this is to navigate to fridge on a succesful login
+              this.router.navigate(['/fridge'])
             },  
-            error =>  this.errorMessage = <any>error);
+            error =>  this.errorMessage = "<any>error");
             this.login = {};
 
   }

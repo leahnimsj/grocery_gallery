@@ -65,8 +65,9 @@ export class DataService {
     logOut(endpoint: string): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, this.options)
-            .map(this.extractData);
+        return this.http.delete(apiUrl, this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     manageFridgeRecord(endpoint: string, id:number): Observable<any> {

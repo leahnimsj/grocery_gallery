@@ -38,6 +38,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logOut(){
+    localStorage.removeItem('user')
     this.originalDataService.logOut("logout")
         .subscribe(
           logout => {

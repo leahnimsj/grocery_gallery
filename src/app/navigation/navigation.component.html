@@ -1,7 +1,7 @@
 <nav id="navContainer" class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
       <div class="navbar-header">
-          <a class="navbar-brand" href="#"><img alt="grocerygallery"/></a>
+          <a class="navbar-brand active" href="#"><img alt="grocerygallery"/></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -10,7 +10,7 @@
               <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/trash" >trash</a></li>
               <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/signup">Signup</a></li>
               <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
-              <li *ngIf="userLoggedIn" routerLinkActive="active"><a  (click)="logOut()" routerLink="/">Logout</a></li>
+              <li *ngIf="userLoggedIn"><a  (click)="logOut()" routerLink="/home">Logout</a></li>
           </ul>
       </div><!--/.nav-collapse -->
   </div>
