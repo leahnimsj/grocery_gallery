@@ -1,3 +1,46 @@
-<p>
-  fridge-search works!
-</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button routerLink="/fridge/add">Bypass search and add fridge item manually</button>
+<br>
+<br>
+
+<form (ngSubmit)="searchFood(foodForm)"  #foodForm="ngForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="searchTerm" class="col-sm-2 control-label">Fridge/Pantry Item:</label>
+      <div class="col-sm-10">
+        <input ngModel #searchTerm="ngModel" type="text" class="form-control" id="searchTerm" name="searchTerm" placeholder="Banana" required >
+        <!-- below code is for validations, if we want to add them -->
+        <!-- <span *ngIf="formErrors.searchTerm" class="text-danger">
+          {{ formErrors.searchTerm }}
+        </span> -->
+      </div>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" [disabled]="!foodForm.form.valid" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  <br>
+  <br>
+
+  <div *ngIf="foodItems" class="searchResults">
+      <table class="table table-bordered" id="dataTable" style="width:100%">
+        <thead>
+          <tr>
+            <th class="text-center">Add Fridge Item</th>
+            <th class="text-center">Food Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let foodItem of foodItems">
+              <td class="text-center">
+                  <button routerLink="/fridge/search/{{foodItem.id}}">Select</button>
+              </td>
+            <td class="text-center">{{foodItem.name}}</td> 
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+  

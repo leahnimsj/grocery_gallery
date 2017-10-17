@@ -10,6 +10,7 @@ import { TrashComponent } from '../trash/trash.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { LoginComponent } from '../login/login.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';
+import { FridgeSearchComponent } from '../fridge-search/fridge-search.component';
 
  
 
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'fridge', component: FridgeComponent },
   { path: 'fridge/edit/:id', component: FridgeFormComponent },
   { path: 'fridge/add', component: FridgeFormComponent },
+  { path: 'fridge/search', component: FridgeSearchComponent },
+  { path: 'fridge/search/:id', component: FridgeFormComponent },
 
   { path: 'grocery', component: GroceryComponent },
   { path: 'grocery/edit/:id', component: GroceryFormComponent },
@@ -30,6 +33,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent }
+
 
 ]
  
