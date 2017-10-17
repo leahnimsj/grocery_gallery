@@ -15,6 +15,9 @@ export class SignUpComponent implements OnInit {
   signUpForm: NgForm;
   successMessage: string;
   errorMessage: string;
+  password;
+  confirmPassword;
+  passwordError;
 
   signUp;
 
@@ -23,13 +26,30 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
+  checkPassword(password, confirmPassword){
+    if(password === confirmPassword){
+      return true
+    }
+  }
+
   sendSignUpForm(signUp: NgForm){
+      if(this.checkPassword(this.password, this.confirmPassword)){
+
+        this.dataService.addRecord("user/signup", signUp.value)
+        .subscribe(
+          signUp => this.successMessage = "Signup Record added succesfully",
+          error =>  this.errorMessage = <any>error);
+          this.signUp = {};
+
+      } else {
+        this.passwordError = "Passwords don't match. Please try again."
+
+
+      }
  
-      this.dataService.addRecord("user/signup", signUp.value)
-          .subscribe(
-            signUp => this.successMessage = "Signup Record added succesfully",
-            error =>  this.errorMessage = <any>error);
-            this.signUp = {};
+      
     
 
   }

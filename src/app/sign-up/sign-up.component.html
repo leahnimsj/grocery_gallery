@@ -6,7 +6,13 @@
 <br>
 <section>
   
+
+
+
+
 <h1 id="signupheader">Create User</h1>
+
+<p id="passwordError">{{passwordError}}</p>
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
@@ -38,7 +44,7 @@
   <div class="form-group">
       <label for="password" class="col-sm-2 control-label">New Password</label>
       <div class="col-sm-10">
-        <input ngModel #password="ngModel" type="text" class="form-control" id="password" name="password"  placeholder="e.g.  'Password'" >
+        <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password" >
   
       </div>
     </div>
@@ -46,7 +52,7 @@
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
         <div class="col-sm-10">
-          <input ngModel #confirmPassword="ngModel" type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="e.g.  'Password'">
+          <input [(ngModel)]="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword" >
 
         </div>
       </div>
