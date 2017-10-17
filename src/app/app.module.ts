@@ -24,7 +24,8 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SessionDataService } from './session-data.service';
 import { EmailService } from './email.service';
-import { GroceryEmailFormComponent } from './grocery-email-form/grocery-email-form.component'; //added email service
+import { GroceryEmailFormComponent } from './grocery-email-form/grocery-email-form.component';
+import { FridgeSearchComponent } from './fridge-search/fridge-search.component'; //added email service
 
 
 
@@ -43,7 +44,8 @@ import { GroceryEmailFormComponent } from './grocery-email-form/grocery-email-fo
     HomePageComponent,
     LoginComponent,
     SignUpComponent,
-    GroceryEmailFormComponent
+    GroceryEmailFormComponent,
+    FridgeSearchComponent
   
 
   ],
