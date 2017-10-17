@@ -12,7 +12,7 @@ export class SessionDataService {
     // instantiate userChanged (type Subject - boolean)
     this.userChanged = new Subject<boolean>();
     // check to see if there is a cookie 
-    if(localStorage.getItem("user") == "true"){
+    if(sessionStorage.getItem("user") == "true"){
       // broadcast out userChanged and that parameter is true
       this.userChanged.next(true);
 

@@ -40,7 +40,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.removeItem('user')
+    sessionStorage.removeItem('user')
     this.originalDataService.logOut("log-out")
         .subscribe(
           logout => {

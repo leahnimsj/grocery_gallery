@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
             login => {
               this.successMessage = "Record added succesfully";
               // on success of login method, we are storing a cookie with the response from login
-              localStorage.setItem("user", login);
+              sessionStorage.setItem("user", login);
               // this is broadcasting to everyone listening to the sessionDataService that something changed - specifically now userChanged = true
               this.sessionDataService.userChanged.next(true);
               // this is to navigate to fridge on a succesful login
