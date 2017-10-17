@@ -48,3 +48,8 @@
     /* background-size: cover; */
     min-height: calc(100vh - 102px);
 }
+
+.manageButtons {
+    background-color: white;
+    border: none;
+}

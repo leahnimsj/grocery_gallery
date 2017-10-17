@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-
+import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconModule, MatIconRegistry } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -29,7 +29,17 @@ export class GroceryComponent implements OnInit {
 
 
 
-  constructor (private dataService: DataService, private emailservice:EmailService, public dialog: MatDialog) {}
+  constructor (private dataService: DataService, private emailservice:EmailService, 
+    public dialog: MatDialog,
+    public iconRegistry: MatIconRegistry, 
+    private sanitizer: DomSanitizer) {
+      iconRegistry.addSvgIcon('complete', sanitizer.bypassSecurityTrustResourceUrl('assets/images/checked.svg'))
+      iconRegistry.addSvgIcon('red', sanitizer.bypassSecurityTrustResourceUrl('assets/images/warning.svg'))
+      iconRegistry.addSvgIcon('black', sanitizer.bypassSecurityTrustResourceUrl('assets/images/delete.svg'))
+      iconRegistry.addSvgIcon('edit', sanitizer.bypassSecurityTrustResourceUrl('assets/images/edit.svg'))
+      iconRegistry.addSvgIcon('remove', sanitizer.bypassSecurityTrustResourceUrl('assets/images/close.svg'))
+      iconRegistry.addSvgIcon('fridge', sanitizer.bypassSecurityTrustResourceUrl('assets/images/fridgegrey.svg'))
+    }
 
   ngOnInit() {
     this.displayGroceryItems(); 
@@ -61,10 +71,10 @@ export class GroceryComponent implements OnInit {
 
 
   sendEmail(email:string) {
-     // var obj = JSON.parse(email);
-
-       alert(email)
-       this.dataService.postEmail(email)
+      var obj = JSON.parse(email);
+      alert ("test" + obj.email)
+       alert(JSON.stringify(obj))
+       this.dataService.postEmail(obj)
         .subscribe(
           email => {this.successMessage = "email sent"},
           error => this.errorMessage = <any>error
