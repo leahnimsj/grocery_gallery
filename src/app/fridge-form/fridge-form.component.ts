@@ -47,6 +47,17 @@ export class FridgeFormComponent implements OnInit {
       .subscribe(fridge => {this.fridge = fridge});
   }
 
+  getSearchforAdd(){
+
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("search", +params['id']))
+      .subscribe(
+        fridge => {this.fridge = fridge}
+      );
+    
+  }
+
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -55,14 +66,25 @@ export class FridgeFormComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
+    
     .subscribe((params: Params) => {
-      let blah = (+params['id']) ? this.getRecordForEdit() : null;
-      if(blah == null){
-        // console.log("eric")
+      console.log(this.route.snapshot.routeConfig.path)
+      if (this.route.snapshot.routeConfig.path.includes("edit")) {
+        this.getRecordForEdit()
+      } else if(this.route.snapshot.routeConfig.path.includes("search")) {
+        this.getSearchforAdd()
+      } else {
         this.fridge.purchasedDate = this.getTodaysDate()
       }
+      
     });
   }
+
+        // let blah = (+params['id']) ? this.getRecordForEdit() : null;
+      // if(blah == null){
+      //   // console.log("eric")
+      //   this.fridge.purchasedDate = this.getTodaysDate()
+    
 
   saveFridge(fridge: NgForm){
     if(typeof fridge.value.id === "number"){
