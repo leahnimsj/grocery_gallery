@@ -72,8 +72,6 @@ export class GroceryComponent implements OnInit {
 
   sendEmail(email:string) {
       var obj = JSON.parse(email);
-      alert ("test" + obj.email)
-       alert(JSON.stringify(obj))
        this.dataService.postEmail(obj)
         .subscribe(
           email => {this.successMessage = "email sent"},

@@ -25,7 +25,6 @@
     <thead>
       <tr>
         <th class="text-center">Food</th>
-        <th class="text-center">Category</th>
         <th class="text-center">Freshness</th>
         <th class="text-center">Expiration Date</th>
         <th class="text-center">Manage</th>
@@ -34,7 +33,6 @@
     <tbody>
       <tr *ngFor="let fridgeItem of fridgeItems">
         <td class="text-center">{{fridgeItem.name}}</td>
-        <td class="text-center">{{fridgeItem.category}}</td>
         <td class="text-center">
           <mat-icon *ngIf="fridgeItem.level==1" svgIcon="green"></mat-icon>
           <mat-icon *ngIf="fridgeItem.level==2" svgIcon="yellow"></mat-icon>
@@ -47,7 +45,6 @@
           <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
           <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
           <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
-          <!-- <button (click)="openManageFormModal(fridgeItem.id)" class="btn btn-primary">Manage Fridge Item</button> -->
         </td>
       </tr>
     </tbody>

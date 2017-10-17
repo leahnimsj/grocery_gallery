@@ -12,4 +12,14 @@ label {
     background-image: url(../../assets/images/bg-pattern2.png);
     /* background-size: cover; */
     min-height: calc(100vh - 102px);
+    padding-bottom: 400px;
+}
+
+input {
+    font-family: 'Lily Script One', cursive;
+}
+
+select {
+    font-family: 'Lily Script One', cursive;
+
 }
