@@ -52,4 +52,35 @@
     background-image: url(../../assets/images/bg-pattern2.png);
     /* background-size: cover; */
     min-height: calc(100vh - 102px);
+    padding-bottom: 400px;
+}
+
+#freshnessLegend {
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+    width: 450px;
+    display: flex;  
+    flex-direction: column;
+    font-family: cousine;
+}
+
+.iconLegend {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+#legendTitle {
+    font-family: 'Lily Script One', cursive;
+    font-size: 25px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    display: flex; 
+    justify-content: center;
+    
+}
+
+.iconText {
+    padding-left: 10px;
 }

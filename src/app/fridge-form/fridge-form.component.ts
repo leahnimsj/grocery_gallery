@@ -52,7 +52,10 @@ export class FridgeFormComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("search", +params['id']))
       .subscribe(
-        fridge => {this.fridge = fridge}
+        fridge => {
+          this.fridge = fridge
+          this.fridge.purchasedDate = this.getTodaysDate()
+        }
       );
     
   }
