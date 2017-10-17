@@ -114,7 +114,6 @@ export class FridgeFormComponent implements OnInit {
   formErrors = {
     'name': '',
     'expirationDate': '',
-    'category': '',
     'purchasedDate': ''
   };
 
@@ -130,9 +129,6 @@ export class FridgeFormComponent implements OnInit {
     },
     'purchasedDate': {
       'pattern': 'Purchased date should be in the following format: YYYY-MM-DD.'
-    },
-    'category': {
-      'required': 'Food category is a required field.'
     }
   };
 

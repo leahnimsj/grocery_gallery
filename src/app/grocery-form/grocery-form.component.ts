@@ -91,8 +91,7 @@ export class GroceryFormComponent implements OnInit {
 
   formErrors = {
     'name': '',
-    'quantity': '',
-    'category': ''
+    'quantity': ''
   };
 
   validationMessages = {
@@ -103,9 +102,6 @@ export class GroceryFormComponent implements OnInit {
     },
     'quantity': {
       'required':  'Quantity is a required field.',
-    },
-    'category': {
-      'required': 'Food category is a required field.'
     }
   };
 
