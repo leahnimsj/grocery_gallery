@@ -34,9 +34,12 @@
           <td class="text-center">{{groceryItem.category}}</td>
           <td class="text-center">{{groceryItem.quantity}}</td>
           <td class="text-center">
-            <button (click)="sendGroceryToFridge(groceryItem.id)" class="btn btn-warning">Fridge</button>
-            <a class="btn btn-primary" [routerLink]="['/grocery/edit/', groceryItem.id]">Edit</a>&nbsp;
-            <button (click)="deleteGroceryItem(groceryItem.id)" class="btn btn-danger">Delete</button>
+          <!--   <button (click)="sendGroceryToFridge(groceryItem.id)" class="btn btn-warning">Fridge</button>
+           <a class="btn btn-primary" [routerLink]="['/grocery/edit/', groceryItem.id]">Edit</a>&nbsp;
+            <button (click)="deleteGroceryItem(groceryItem.id)" class="btn btn-danger">Delete</button> -->
+            <button title="Put grocery item in fridge" (click)="sendGroceryToFridge(groceryItem.id)"  class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>
+            <button title="Edit grocery item" [routerLink]="['/grocery/edit/', groceryItem.id]" class="manageButtons"><mat-icon svgIcon="edit"></mat-icon></button>
+            <button (click)="deleteGroceryItem(groceryItem.id)" title="Delete grocery item" class="manageButtons"><mat-icon svgIcon="remove"></mat-icon></button>
           </td>
         </tr>
       </tbody>

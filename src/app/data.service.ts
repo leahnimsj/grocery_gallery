@@ -94,7 +94,7 @@ export class DataService {
 
     }
 
-    postEmail(record:string): Observable<any> {
+    postEmail(record:object): Observable<any> {
         return this.http.post(this.mailUrl, record, this.options)
             .map(this.extractData)
             .catch(this.handleError);

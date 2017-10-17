@@ -11,10 +11,11 @@
   <br>
   <br>
   <br>
-    <h1 id="groceryFormHeader">Manage Grocery List</h1>
+    <h1 id="groceryFormHeader">Manage Grocery</h1>
     
+    {{grocery?.id}}
+
     <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-    
     <form (ngSubmit)="saveGrocery(groceryForm)"  #groceryForm="ngForm" class="form-horizontal">
       <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
       <div class="form-group">
@@ -53,6 +54,7 @@
       <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" [disabled]="!groceryForm.form.valid" class="btn btn-primary">Submit</button>
+      
       </div>
     </div>
     </form>

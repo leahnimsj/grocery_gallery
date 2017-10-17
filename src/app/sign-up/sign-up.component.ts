@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
 
   sendSignUpForm(signUp: NgForm){
  
-      this.dataService.addRecord("signup", signUp.value)
+      this.dataService.addRecord("user/signup", signUp.value)
           .subscribe(
             signUp => this.successMessage = "Signup Record added succesfully",
             error =>  this.errorMessage = <any>error);
