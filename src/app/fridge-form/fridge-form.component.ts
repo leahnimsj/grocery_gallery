@@ -16,7 +16,7 @@ export class FridgeFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
 
-  fridge;
+  fridge: any = {};
 
 
   fridgeForm: NgForm;
@@ -44,7 +44,7 @@ export class FridgeFormComponent implements OnInit {
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("fridge", +params['id']))
-      .subscribe(fridge => this.fridge = fridge);
+      .subscribe(fridge => {this.fridge = fridge});
   }
 
   constructor(
@@ -56,7 +56,11 @@ export class FridgeFormComponent implements OnInit {
   ngOnInit() {
     this.route.params
     .subscribe((params: Params) => {
-      (+params['id']) ? this.getRecordForEdit() : null;
+      let blah = (+params['id']) ? this.getRecordForEdit() : null;
+      if(blah == null){
+        // console.log("eric")
+        this.fridge.purchasedDate = this.getTodaysDate()
+      }
     });
   }
 
