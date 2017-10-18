@@ -37,7 +37,7 @@ export class FridgeSearchComponent implements OnInit {
       this.dataService.getFoodSearch(search.value.searchTerm)
           .subscribe(
             foodItems => this.foodItems = foodItems,
-            error =>  this.errorMessage = <any>error);
+            error =>  this.errorMessage = "Food item was not found. Please refine your search");
     }
 
  

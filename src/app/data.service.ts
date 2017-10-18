@@ -142,9 +142,6 @@ export class DataService {
     private handleError(error: Response | any) {
         // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;
-        if(typeof error._body === "string"){
-            errMsg = error._body
-        }else{
             if (error instanceof Response) {
                 if(error.status === 0){
                     errMsg = "Error connecting to API"
@@ -152,9 +149,7 @@ export class DataService {
                     const errorJSON = error.json();
                     errMsg = errorJSON.message;
                 }
-            }
         }
-
         return Observable.throw(errMsg);
     }
 
