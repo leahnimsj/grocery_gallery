@@ -89,14 +89,12 @@ export class FridgeComponent implements OnInit {
 
     moveFridgeToGrocery(id:number, record: string){
       var obj = JSON.parse(record);
-      console.log(obj)
-      console.log(id)
 
       this.dataService.moveFridgeRecord("grocery", id, obj)
         .subscribe(
           result => {
             this.successMessage = "Record added to grocery list!"; 
-            this.displayFridgeItems();
+            // this.displayFridgeItems();
           },
           error => this.errorMessage = <any>error);
     }

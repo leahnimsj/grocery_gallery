@@ -86,7 +86,7 @@ export class DataService {
         let apiUrl = `${this.fridgeUrl}${id}/${endpoint}`;
         console.log(apiUrl)
         console.log(record)
-        return this.http.post(apiUrl, this.options, record)
+        return this.http.post(apiUrl, record, this.options )
             .map(this.extractData);
     }
 
