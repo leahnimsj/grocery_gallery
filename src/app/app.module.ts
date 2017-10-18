@@ -25,7 +25,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SessionDataService } from './session-data.service';
 import { EmailService } from './email.service';
 import { GroceryEmailFormComponent } from './grocery-email-form/grocery-email-form.component';
-import { FridgeSearchComponent } from './fridge-search/fridge-search.component'; //added email service
+import { FridgeSearchComponent } from './fridge-search/fridge-search.component';
+import { GroceryAddComponent } from './grocery-add/grocery-add.component'; //added email service
 
 
 
@@ -45,7 +46,8 @@ import { FridgeSearchComponent } from './fridge-search/fridge-search.component';
     LoginComponent,
     SignUpComponent,
     GroceryEmailFormComponent,
-    FridgeSearchComponent
+    FridgeSearchComponent,
+    GroceryAddComponent
   
 
   ],
@@ -62,7 +64,7 @@ import { FridgeSearchComponent } from './fridge-search/fridge-search.component';
   ],
 
   entryComponents: [
-    ManageFridgeComponent, GroceryEmailFormComponent
+    ManageFridgeComponent, GroceryEmailFormComponent, GroceryAddComponent
   ],
 
 
