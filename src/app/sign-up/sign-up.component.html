@@ -21,30 +21,40 @@
   <div class="form-group">
       <label for="firstName" class="col-sm-2 control-label">First Name</label>
       <div class="col-sm-10">
-        <input ngModel #firstName="ngModel" type="text" class="form-control" id="userFirstName" name="firstName"  placeholder="first name" >
+        <input ngModel #firstName="ngModel" ngModel type="text" class="form-control" id="firstName" name="firstName"  placeholder="first name" required minlength="2" maxlength="255">
+        <span *ngIf="formErrors.firstName" class="text-danger">
+          {{ formErrors.firstName }}
+        </span>
       </div>
     </div>
 
     <div class="form-group">
         <label for="lastName" class="col-sm-2 control-label">Last Name</label>
         <div class="col-sm-10">
-          <input ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName"  placeholder="last name" >
-      
+          <input ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName"  placeholder="last name" required minlength="2" maxlength="255" >
+          <span *ngIf="formErrors.lastName" class="text-danger">
+            {{ formErrors.lastName}}
+          </span>
         </div>
       </div>
 
   <div class="form-group">
     <label for="email" class="col-sm-2 control-label">Email / User Name</label>
     <div class="col-sm-10">
-      <input ngModel #email="ngModel" type="text" class="form-control" id="email" name="email"  placeholder="e.g.  priya@gmail.com" >
-
+      <input ngModel #email="ngModel" type="text" class="form-control" id="email" name="email"  placeholder="e.g.  priya@gmail.com" required   required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <span *ngIf="formErrors.email" class="text-danger">
+        {{ formErrors.email}}
+      </span>
     </div>
   </div>
 
   <div class="form-group">
       <label for="password" class="col-sm-2 control-label">New Password</label>
       <div class="col-sm-10">
-        <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password" >
+        <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password" required minlength="6">
+        <span *ngIf="formErrors.password" class="text-danger">
+          {{ formErrors.password}}
+        </span>
   
       </div>
     </div>
@@ -52,7 +62,10 @@
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
         <div class="col-sm-10">
-          <input [(ngModel)]="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword" >
+          <input [(ngModel)]="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="6">
+          <span *ngIf="formErrors.confirmPassword" class="text-danger">
+            {{ formErrors.confirmPassword}}
+          </span>
 
         </div>
       </div>
