@@ -96,7 +96,8 @@ export class FridgeComponent implements OnInit {
             this.successMessage = "Record added to grocery list!"; 
             // this.displayFridgeItems();
           },
-          error => this.errorMessage = <any>error);
+          error => this.errorMessage = <any>error
+        );
     }
   
     deleteFridgeItem(id:number) {
