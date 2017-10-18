@@ -73,19 +73,33 @@ export class DataService {
             .catch(this.handleError);
     }
 
+    // this method is for sending things to the trash
     manageFridgeRecord(endpoint: string, id:number): Observable<any> {
         let apiUrl = `${this.fridgeUrl}${id}/${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, id, this.options)
+        return this.http.post(apiUrl, this.options)
             .map(this.extractData);
     }
+
+    // this method is for sending things to grocery list from fridge
+    moveFridgeRecord(endpoint: string, id:number, record:object): Observable<any> {
+        let apiUrl = `${this.fridgeUrl}${id}/${endpoint}`;
+        console.log(apiUrl)
+        console.log(record)
+        return this.http.post(apiUrl, this.options, record)
+            .map(this.extractData);
+    }
+
+
 
     manageGroceryRecord(endpoint: string, id:number): Observable<any> {
         let apiUrl = `${this.groceryUrl}${id}/${endpoint}`;
         console.log(apiUrl)
-        return this.http.post(apiUrl, id, this.options)
+        return this.http.post(apiUrl, this.options)
             .map(this.extractData);
     }
+
+
 
 
     getTrash(endpoint: string): Observable<any[]> {

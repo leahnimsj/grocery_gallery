@@ -83,6 +83,7 @@
           <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
           <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
           <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
+          <button (click)="openLoginModal(fridgeItem.id)">Add to grocery list</button>
         </td>
       </tr>
     </tbody>

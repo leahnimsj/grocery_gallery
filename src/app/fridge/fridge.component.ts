@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
 import { ManageFridgeComponent } from '../manage-fridge/manage-fridge.component';
-import {DomSanitizer} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; //ruben added for dialog
-import { MatDialog, MatDialogConfig, MatDialogRef, MatIconModule, MatIconRegistry } from '@angular/material'; //ruben added
+import { MatDialog, MatDialogConfig, MatDialogRef, MatIconModule, MatIconRegistry, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material'; //ruben added
+import { GroceryAddComponent } from '../grocery-add/grocery-add.component';
 
+import {DomSanitizer} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-fridge',
@@ -21,7 +22,7 @@ export class FridgeComponent implements OnInit {
   fridgeItems: any[];
   count3;
   count4;
-  dialogRef: MatDialogRef<ManageFridgeComponent> | null; //adding
+  quantityRecord: string;
 
 
   constructor (
@@ -63,45 +64,42 @@ export class FridgeComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
-  openManageFormModal(id:number){
-    let dialogRef = this.dialog.open(ManageFridgeComponent, {
-      height: '400px',
-      width: '8900px',
-      data: { editId: id }
-
-    });
-
- 
-  
-
-    console.log(id);
+  // modal code
+  openLoginModal(id:number){
     
+        let dialogRef = this.dialog.open(GroceryAddComponent, {
+          height: '400px',
+          width: '600px',
+        });
+    
+    // need to figure out how to get id here.....
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+    
+          if (result){
+            this.quantityRecord = '{"quantity": "' + result + '"}'
+            this.moveFridgeToGrocery(id, this.quantityRecord);
+          } 
+    
+    
+        })
+    
+      }
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
+    moveFridgeToGrocery(id:number, record: string){
+      var obj = JSON.parse(record);
+      console.log(obj)
+      console.log(id)
 
-        if (result == "delete"){
-          this.deleteFridgeItem(id)
-        } 
-
-        else if (result == "wasted"){
-          this.wastedFridgeItem(id)
-        } 
-
-        else if (result == "finished"){
-          this.finishedFridgeItem(id)
-        } 
-
-      
-
-      })
-
+      this.dataService.moveFridgeRecord("grocery", id, obj)
+        .subscribe(
+          result => {
+            this.successMessage = "Record added to grocery list!"; 
+            this.displayFridgeItems();
+          },
+          error => this.errorMessage = <any>error);
     }
-
-    closeManageFormModal(){
-      let dialogRef = this.dialog.closeAll    
-    }
-
   
     deleteFridgeItem(id:number) {
       
