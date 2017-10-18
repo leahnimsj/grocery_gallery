@@ -33,7 +33,7 @@
           <td class="text-center">{{groceryItem.quantity}}</td>
           <td class="text-center">
            <!-- <button title="Put grocery item in fridge" (click)="sendGroceryToFridge(groceryItem.id)"  class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>-->
-           <button type="button" data-name="{{groceryItem.name}}" title="Put grocery item in fridge" [routerLink]="['/fridge/search/', groceryItem.name]" class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>
+           <button type="button" data-name="{{groceryItem.name}}" title="Put grocery item in fridge" [routerLink]="['/fridge/search/', groceryItem.name]" (click)="deleteGroceryItem(groceryItem.id)" class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>
            
  
             <button title="Edit grocery item" [routerLink]="['/grocery/edit/', groceryItem.id]" class="manageButtons"><mat-icon svgIcon="edit"></mat-icon></button>
