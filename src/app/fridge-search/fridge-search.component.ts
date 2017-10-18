@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, ViewChild }      from '@angular/core';
+import { Component, OnInit, ViewChild, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -13,17 +13,23 @@ import { DataService } from '../data.service';
 
 
 export class FridgeSearchComponent implements OnInit {
+  foodItem = "";
 
   foodItems: any[];
   successMessage;
   errorMessage;
   constructor(
-    private dataService: DataService
-
+    private dataService: DataService,
+    private route: ActivatedRoute
 
   ) { }
 
   ngOnInit() {
+
+    this.route.params
+    .subscribe((params: Params) => {
+      this.foodItem = params['name'] 
+    })
   }
 
   searchFood(search: NgForm){
