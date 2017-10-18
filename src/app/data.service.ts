@@ -18,6 +18,7 @@ export class DataService {
     private finishUrl = 'https://grocery-gallery.herokuapp.com/finish/'
     private mailUrl = 'https://grocery-gallery.herokuapp.com/grocery/mail'
     private searchUrl = 'https://grocery-gallery.herokuapp.com/search?query='
+    private alertUrl = 'https://grocery-gallery.herokuapp.com/fridge/count?level='
     private options = {
         withCredentials: true
     }
@@ -104,6 +105,14 @@ export class DataService {
 
     getFoodSearch(searchTerm: string): Observable<any[]> {
         let apiUrl = this.searchUrl+searchTerm;
+
+        return this.http.get(apiUrl, this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getAlerts(level: string): Observable<any[]> {
+        let apiUrl = this.alertUrl+level;
         console.log(apiUrl)
 
         return this.http.get(apiUrl, this.options)

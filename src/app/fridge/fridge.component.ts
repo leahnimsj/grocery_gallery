@@ -19,6 +19,8 @@ export class FridgeComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
+  count3;
+  count4;
   dialogRef: MatDialogRef<ManageFridgeComponent> | null; //adding
 
 
@@ -39,9 +41,20 @@ export class FridgeComponent implements OnInit {
 
   ngOnInit() {
     this.displayFridgeItems(); 
+    this.displayAlerts();
   }
 
-
+  displayAlerts(){
+    this.dataService.getAlerts("3")
+      .subscribe(
+        count => this.count3 = count,
+        error => this.errorMessage = <any>error);
+    this.dataService.getAlerts("4")
+        .subscribe(
+          count => this.count4 = count,
+          error => this.errorMessage = <any>error
+        );
+  }
 
   displayFridgeItems() {
     this.dataService.getRecords("fridge")

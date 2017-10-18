@@ -55,7 +55,7 @@
     padding-bottom: 400px;
 }
 
-#freshnessLegend {
+.legend {
     border: 1px solid;
     border-radius: 15px;
     padding: 5px;

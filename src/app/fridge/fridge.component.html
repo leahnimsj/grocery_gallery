@@ -12,7 +12,22 @@
 <br>
 <br>
 <br>
-<div id=freshnessLegend>
+<div class=legend>
+  <div id="legendTitle" class="iconLegend" >
+    <p>Alerts</p>
+  </div>
+  <div class="iconLegend">
+      <mat-icon svgIcon="red"></mat-icon>
+      <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
+  </div>
+  <div class="iconLegend">
+      <mat-icon svgIcon="black"></mat-icon>
+      <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
+  </div>
+</div>
+<br>
+<br>
+<div class=legend>
   <div id="legendTitle" class="iconLegend" >
     <p>Food Freshness Legend</p>
   </div>
@@ -33,6 +48,8 @@
       <p class="iconText">Food has gone bad. Past expiration date.</p>
   </div>
 </div>
+
+
 <div id="fridgeContent" class="content">
   <div id="content">
     <p id="fridge">Fridge/Pantry</p>
