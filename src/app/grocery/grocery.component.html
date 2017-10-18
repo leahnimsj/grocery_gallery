@@ -32,7 +32,10 @@
           <td class="text-center">{{groceryItem.name}}</td>
           <td class="text-center">{{groceryItem.quantity}}</td>
           <td class="text-center">
-            <button title="Put grocery item in fridge" (click)="sendGroceryToFridge(groceryItem.id)"  class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>
+           <!-- <button title="Put grocery item in fridge" (click)="sendGroceryToFridge(groceryItem.id)"  class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>-->
+           <button type="button" data-name="{{groceryItem.name}}" title="Put grocery item in fridge" [routerLink]="['/fridge/search/', groceryItem.name]" class="manageButtons"><mat-icon svgIcon="fridge"></mat-icon></button>
+           
+ 
             <button title="Edit grocery item" [routerLink]="['/grocery/edit/', groceryItem.id]" class="manageButtons"><mat-icon svgIcon="edit"></mat-icon></button>
             <button (click)="deleteGroceryItem(groceryItem.id)" title="Delete grocery item" class="manageButtons"><mat-icon svgIcon="remove"></mat-icon></button>
           </td>
@@ -41,7 +44,7 @@
     </table>
   </div>
   
-  
+
   <a class="btn btn-primary" routerLink="/grocery/add">Add Grocery Item</a>
 
   <a class="btn btn-primary" (click)="openLoginModal()">Send Grocery List</a>

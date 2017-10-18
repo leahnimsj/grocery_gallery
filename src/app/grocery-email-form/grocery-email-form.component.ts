@@ -18,8 +18,5 @@ export class GroceryEmailFormComponent implements OnInit {
 
   }
 
-  sendEmail(){
-    alert("sent")
-  }
 
 }

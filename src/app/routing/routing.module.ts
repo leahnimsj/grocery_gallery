@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'fridge/edit/:id', component: FridgeFormComponent },
   { path: 'fridge/add', component: FridgeFormComponent },
   { path: 'fridge/search', component: FridgeSearchComponent },
-  { path: 'fridge/search/:id', component: FridgeFormComponent },
+  { path: 'fridge/addsearch/:id', component: FridgeFormComponent },
+  { path: 'fridge/search/:name', component: FridgeSearchComponent },
 
   { path: 'grocery', component: GroceryComponent },
   { path: 'grocery/edit/:id', component: GroceryFormComponent },
