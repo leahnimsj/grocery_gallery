@@ -5,6 +5,7 @@
 <br>
 <br>
 
+<app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
 <section>
 <form (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm" class="form-horizontal">
   <div class="form-group">

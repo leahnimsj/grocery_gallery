@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, ViewChild }      from '@angular/core';
+import { Component, OnInit, ViewChild, Input }      from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -45,8 +45,15 @@ export class LoginComponent implements OnInit {
               this.sessionDataService.userChanged.next(true);
               // this is to navigate to fridge on a succesful login
               this.router.navigate(['/fridge'])
-            },  
-            error =>  this.errorMessage = "<any>error");
+            }, 
+            error => {
+              if(error.status == 403){
+                this.errorMessage = "Username/email and/or password are incorrect."
+              } else {
+                this.errorMessage = error.error
+              }
+
+             })
             this.login = {};
 
   }

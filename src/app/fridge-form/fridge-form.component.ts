@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 
@@ -64,7 +64,8 @@ export class FridgeFormComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -93,12 +94,18 @@ export class FridgeFormComponent implements OnInit {
     if(typeof fridge.value.id === "number"){
       this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
           .subscribe(
-            fridge => this.successMessage = "Record updated succesfully",
+            fridge => {
+              this.successMessage = "Record updated succesfully";
+              this.router.navigate(['/fridge']);
+          },
             error =>  this.errorMessage = <any>error);
     }else{
       this.dataService.addRecord("fridge", fridge.value)
           .subscribe(
-            fridge => this.successMessage = "Record added succesfully",
+            fridge => {
+              this.successMessage = "Record added succesfully";
+              this.router.navigate(['/fridge']);
+          },
             error =>  this.errorMessage = <any>error);
             this.fridge = {};
     }
