@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { MatDialogModule } from '@angular/material';
-import {MatIconModule, MatIconRegistry } from '@angular/material';
+import {MatIconModule, MatIconRegistry, MatButtonModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -58,7 +58,14 @@ import { GroceryAddComponent } from './grocery-add/grocery-add.component'; //add
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  
+    
 
 
   ],

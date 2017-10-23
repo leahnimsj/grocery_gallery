@@ -4,7 +4,16 @@
 <br>
 <br>
 <app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
-<button routerLink="/fridge/add">Bypass search and add fridge item manually</button>
+
+<div id="searchDiv">
+<div id="fridgeContent" class="content">
+  <div id="content">
+    <p id="fridge">Food Search</p>
+    <p id="foodText">Search to add items to your fridge/pantry!</p>
+  </div>  
+    <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
+</div>
+<button id="addButton" mat-raised-button routerLink="/fridge/add">Bypass Search</button>
 <br>
 <br>
 
@@ -20,24 +29,28 @@
       </div>
     </div>
     <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" [disabled]="!foodForm.form.valid" class="btn btn-primary">Submit</button>
+        <button id="submitButton" mat-raised-button type="submit" [disabled]="!foodForm.form.valid" class="btn btn-primary">Submit</button>
     </div>
   </form>
+</div>
+  <br>
   <br>
   <br>
 
-  <div *ngIf="foodItems" class="searchResults">
+  <div *ngIf="foodItems" class="searchResults" id="searchResultsTable">
       <table class="table table-bordered" id="dataTable" style="width:100%">
         <thead>
           <tr>
-            <th class="text-center">Add Fridge Item</th>
+            <th class="text-center">Add to Fridge/Pantry</th>
             <th class="text-center">Food Name</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let foodItem of foodItems">
               <td class="text-center">
-                  <button routerLink="/fridge/addsearch/{{foodItem.id}}">Select</button>
+                  <button id="selectButton" mat-icon-button routerLink="/fridge/addsearch/{{foodItem.id}}">
+                    <mat-icon svgIcon="select"></mat-icon>
+                  </button>
               </td>
             <td class="text-center">{{foodItem.name}}</td> 
           </tr>  

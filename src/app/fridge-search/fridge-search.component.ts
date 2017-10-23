@@ -3,7 +3,8 @@ import { Component, OnInit, ViewChild, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
-
+import { MatButtonModule, MatButtonToggleModule, MatIconModule, MatIconRegistry } from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 import { DataService } from '../data.service';
 @Component({
   selector: 'app-fridge-search',
@@ -20,9 +21,13 @@ export class FridgeSearchComponent implements OnInit {
   errorMessage;
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public iconRegistry: MatIconRegistry, 
+    private sanitizer: DomSanitizer
 
-  ) { }
+  ) {
+    iconRegistry.addSvgIcon('select', sanitizer.bypassSecurityTrustResourceUrl('assets/images/verification.svg'))
+   }
 
   ngOnInit() {
 

@@ -1,6 +1,8 @@
 #groceryFormHeader {
     font-family: 'Lily Script One', cursive;
-    font-size: 50px;
+    font-size: 60px;
+    color: hsla(125, 68%, 34%, 1.0);
+    margin-bottom: 40px;
 }
 
 label {
@@ -15,11 +17,38 @@ label {
     padding-bottom: 400px;
 }
 
-input {
-    font-family: 'Lily Script One', cursive;
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgba(252, 245, 236, 0.733);
+    border-radius: 20px;
+    padding: 20px;
+  }
+  
+  .example-container > * {
+    width: 80%;
+  }
+
+  #manageGrocery {
+      width: 70%;
+      margin-left: 15%;
+      margin-right: 15%;
+  }
+
+  #submitButton {
+    background-color: #fdb52f;
+    font-family: cousine;
 }
 
-select {
-    font-family: 'Lily Script One', cursive;
-
+.mat-form-field {
+    font-family: cousine;
+    font-size: 15px;
+    position: none;
 }
+
+textarea {
+    line-height: 30px;
+}
+
