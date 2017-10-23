@@ -20,9 +20,8 @@ export class FridgeComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
-  count3: any = false;
+  count3;
   count4;
-  count5;
   quantityRecord: string;
 
   constructor (
@@ -45,16 +44,34 @@ export class FridgeComponent implements OnInit {
     this.displayAlerts();
   }
 
+
+  isNumber(val){
+    return typeof val === 'number';
+  }
+
   displayAlerts(){
     this.dataService.getAlerts("3")
       .subscribe(
-        count => this.count3 = count,
+        count => {
+          if(this.isNumber(count)){
+            this.count3 = count
+          } else {
+            this.count3 = 0
+          }
+        },
+  
         error => this.errorMessage = <any>error
       );
       
     this.dataService.getAlerts("4")
         .subscribe(
-          count => {this.count4 = count; console.log(count)},
+          count => {
+            if(this.isNumber(count)){
+              this.count4 = count
+            } else {
+              this.count4 = 0
+            }
+          },
           error => this.errorMessage = <any>error
         );
   }
