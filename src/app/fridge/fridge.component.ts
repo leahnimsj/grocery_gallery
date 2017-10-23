@@ -20,10 +20,10 @@ export class FridgeComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
-  count3;
+  count3: any = false;
   count4;
+  count5;
   quantityRecord: string;
-
 
   constructor (
     private dataService: DataService, 
@@ -49,10 +49,12 @@ export class FridgeComponent implements OnInit {
     this.dataService.getAlerts("3")
       .subscribe(
         count => this.count3 = count,
-        error => this.errorMessage = <any>error);
+        error => this.errorMessage = <any>error
+      );
+      
     this.dataService.getAlerts("4")
         .subscribe(
-          count => this.count4 = count,
+          count => {this.count4 = count; console.log(count)},
           error => this.errorMessage = <any>error
         );
   }
@@ -121,10 +123,4 @@ export class FridgeComponent implements OnInit {
         item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
         error =>  this.errorMessage = <any>error);
     }
-
-  
- 
-
-
-
 }
