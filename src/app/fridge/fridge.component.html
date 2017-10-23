@@ -15,8 +15,13 @@
 
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-<a *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' : 'You have alerts to address'}}</a>
-<div *ngIf="alerts; else alertshow" class=legend>
+<br>
+<br>
+<div id="warningheader">
+&nbsp;&nbsp;&nbsp;<mat-icon svgIcon="alert"></mat-icon>&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a>
+
+</div>
+<div *ngIf="alerts; else alertshow" >
   <div id="legendTitle" class="iconLegend" >
   </div>
   <div *ngIf="count3 !== 0" class="iconLegend">
@@ -33,28 +38,7 @@
 <br>
 <br>
 
-<a (click)="key = !key">{{key ? 'Hide Key' : 'Show Key'}}</a>
-<div *ngIf="key; else keyshow" class=legend >
-  <div id="legendTitle" class="iconLegend" >
-    <p>Food Freshness Legend</p>
-  </div>
-  <div class="iconLegend">
-      <mat-icon svgIcon="green"></mat-icon>
-      <p class="iconText">Food is fresh</p>
-  </div>
-  <div class="iconLegend">
-      <mat-icon svgIcon="yellow"></mat-icon>
-      <p class="iconText">Food is in the middle of it's life</p>
-  </div>
-  <div class="iconLegend">
-      <mat-icon svgIcon="red"></mat-icon>
-      <p class="iconText">Food is about to expire</p>
-  </div>
-  <div class="iconLegend">
-      <mat-icon svgIcon="black"></mat-icon>
-      <p class="iconText">Food has gone bad. Past expiration date.</p>
-  </div>
-</div>
+
 
 <!--<ng-template #keyshow>Alternate text while key text is hidden</ng-template>-->
 
@@ -66,6 +50,43 @@
   </div>  
     <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
 </div>
+
+
+<div id="tabletop">
+  
+    <div>
+     <a class="btn btn-primary btn-right" routerLink="/fridge/search">Add Fridge Item</a>
+    </div>
+     <div>
+      <a id=keylinktext (click)="key = !key">{{key ? 'Hide Key' : 'Show Key'}}</a>
+    </div>
+
+  </div>
+
+
+  <div class="keysection">
+      <div *ngIf="key; else keyshow" class=legend >
+        <div id="legendTitle" class="iconLegend" >
+            <p>Food Freshness Legend</p>
+        </div>
+        <div class="iconLegend">
+            <mat-icon svgIcon="green"></mat-icon>
+            <p class="iconText">Food is fresh</p>
+        </div>
+        <div class="iconLegend">
+              <mat-icon svgIcon="yellow"></mat-icon>
+              <p class="iconText">Food is in the middle of it's life</p>
+        </div>
+        <div class="iconLegend">
+              <mat-icon svgIcon="red"></mat-icon>
+              <p class="iconText">Food is about to expire</p>
+        </div>
+        <div class="iconLegend">
+              <mat-icon svgIcon="black"></mat-icon>
+              <p class="iconText">Food has gone bad. Past expiration date.</p>
+        </div>
+    </div>
+
 
 <div class="foodTable">
   <table class="table table-bordered" id="dataTable" style="width:100%">
@@ -98,12 +119,3 @@
     </tbody>
   </table>
 </div>
-
-  
-
-
-
-
-<a class="btn btn-primary" routerLink="/fridge/search">Add Fridge Item</a>
-
-
