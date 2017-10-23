@@ -84,3 +84,47 @@
 .iconText {
     padding-left: 10px;
 }
+
+#warningheader{
+    background-color: #D36666;
+    line-height: 47px;
+    display: flex;
+   
+    
+    
+}
+
+#alertslinktext{
+    color: #F5ECEC;
+    font-size: 13pt;
+    font-family: 'cousine';
+    vertical-align: middle;
+}
+
+#alertslinktext:hover  {
+color: #A02C2C;
+text-decoration-line: none;
+}
+
+#keylinktext{
+    color: #8F7649;
+    font-size: 14pt;
+    font-family: 'cousine';  
+}
+
+#keylinktext:hover  {
+    color: #C0A26E;
+    text-decoration-line: none;
+    }
+
+#tabletop{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#keytop{
+    display: flex;
+    justify-content: flex-end;
+
+}
