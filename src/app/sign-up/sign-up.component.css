@@ -1,14 +1,45 @@
 #signupheader {
     font-family: 'Lily Script One', cursive;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 #passwordError {
-    color: red;
+    color: rgb(160, 4, 4);
     font-size: 24px;
     font-family: cousine;
 }
 
 input {
     font-family: 'Lily Script One', cursive;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color:rgba(252, 245, 236, 0.733); */
+    border-radius: 20px;
+    padding: 20px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%; 
+  }
+  
+  .example-container > * {
+    width: 85%;
+  }
+
+  #submitButton {
+    background-color: #fdb52f;
+    font-family: cousine;
+}
+
+.mat-form-field {
+    font-family: cousine;
+    font-size: 15px;
+    position: none;
+}
+
+textarea {
+    line-height: 15px;
 }

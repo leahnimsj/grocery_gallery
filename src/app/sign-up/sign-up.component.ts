@@ -1,8 +1,9 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, MatInput } from '@angular/material';
 
 import { DataService } from '../data.service';
 @Component({
@@ -26,7 +27,10 @@ export class SignUpComponent implements OnInit {
 
   signUp;
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -44,7 +48,10 @@ export class SignUpComponent implements OnInit {
 
         this.dataService.addRecord("user/signup", signUp.value)
         .subscribe(
-          signUp => this.successMessage = "Signup Record added succesfully",
+          signUp => {
+            this.successMessage = "Signup Record added succesfully",
+            this.router.navigate(['/login'])
+        },
           error =>  this.errorMessage = <any>error);
           this.signUp = {};
 

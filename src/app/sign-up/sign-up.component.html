@@ -10,13 +10,17 @@
 
 
 
-<h1 id="signupheader">Create User</h1>
+<br>
+<br>
 
 <p id="passwordError">{{passwordError}}</p>
+<h1 id="signupheader" class="text-center">Create User</h1>
+
+
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<form (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm" class="form-horizontal">
+<!-- <form (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm" class="form-horizontal">
  
   <div class="form-group">
       <label for="firstName" class="col-sm-2 control-label">First Name</label>
@@ -80,7 +84,52 @@
       <a type="button" class="btn btn-primary" routerLink="/home/">Back to home</a>
     </div>
 </div>
+</form> -->
+
+<form class="example-container" (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm">
+    <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
+    <mat-form-field>
+      <textarea matInput placeholder="First Name" ngModel #firstName="ngModel" ngModel id="firstName" name="firstName" required minlength="2" maxlength="255"></textarea>
+      <span *ngIf="formErrors.firstName" class="text-danger">
+          {{ formErrors.firstName }}
+        </span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Last Name" ngModel #lastName="ngModel" ngModel id="lastName" name="lastName" required minlength="2" maxlength="255"></textarea>
+      <span *ngIf="formErrors.lastName" class="text-danger">
+          {{ formErrors.lastName}}
+        </span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Email/Username" ngModel #email="ngModel" ngModel id="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></textarea>
+      <span *ngIf="formErrors.email" class="text-danger">
+          {{ formErrors.email}}
+        </span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Password" [(ngModel)]="password" ngModel id="password" name="password" required minlength="6"></textarea>
+      <span *ngIf="formErrors.password" class="text-danger">
+          {{ formErrors.password}}
+        </span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Confirm Password" [(ngModel)]="confirmPassword" ngModel id="confirmPassword" name="confirmPassword" required minlength="6"></textarea>
+      <span *ngIf="formErrors.confirmPassword" class="text-danger">
+          {{ formErrors.confirmPassword}}
+        </span>
+    </mat-form-field>
+    <div class="form-group">
+      <div>
+          <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    
 </form>
+
 </section>
 
 <!-- <input [ngModel]="fridge?.category" ngModel #category="ngModel" type="text" class="form-control" id="category" name="category" placeholder="Dairy" required> -->
