@@ -7,7 +7,7 @@
 
 <app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
 <section>
-<form (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm" class="form-horizontal">
+<!-- <form (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm" class="form-horizontal">
   <div class="form-group">
     <label for="email" class="col-sm-2 control-label">E-mail/username</label>
     <div class="col-sm-10">
@@ -31,5 +31,28 @@
     <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">Submit</button>
   </div>
 </div>
+</form> -->
+
+<h1 id="signupheader" class="text-center">Log In</h1>
+<form class="example-container" (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm">
+  <mat-form-field>
+    <textarea matInput placeholder="Email/Username" ngModel #email="ngModel" id="email" name="email" required></textarea>
+    <span *ngIf="formErrors.email" class="text-danger">
+      {{ formErrors.email }}
+    </span>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea matInput placeholder="Password" ngModel #password="ngModel" id="password" name="password" required></textarea>
+    <span *ngIf="formErrors.password"  class="text-danger">
+      {{ formErrors.password }}
+    </span>
+  </mat-form-field>
+  <div class="form-group">
+    <div>
+        <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Log in</button>
+    </div>
+  </div>
+  
 </form>
 </section>

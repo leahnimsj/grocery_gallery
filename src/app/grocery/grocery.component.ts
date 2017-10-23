@@ -12,7 +12,7 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconModule, MatIconRegistry } from '@angular/material';
+import {MatIconModule, MatIconRegistry, MatButtonModule, MatButtonToggleModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
