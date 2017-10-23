@@ -1,7 +1,7 @@
 #groceryFormHeader {
     font-family: 'Lily Script One', cursive;
     font-size: 60px;
-    color: hsla(125, 68%, 34%, 1.0);
+    color: black;
     margin-bottom: 40px;
 }
 
@@ -22,7 +22,7 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:rgba(252, 245, 236, 0.733);
+    /* background-color:rgba(252, 245, 236, 0.733); */
     border-radius: 20px;
     padding: 20px;
   }
@@ -52,3 +52,6 @@ textarea {
     line-height: 30px;
 }
 
+#styling{
+    background-color:rgba(252, 245, 236, 0.733);
+}

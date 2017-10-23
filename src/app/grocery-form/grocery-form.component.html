@@ -19,7 +19,7 @@
 
  
 
-    <h1 id="groceryFormHeader">Manage Grocery</h1>
+    
     
 
     <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
@@ -50,22 +50,27 @@
       </div>
     </div>
     </form> -->
-
-      <form class="example-container" (ngSubmit)="saveGrocery(groceryForm)"  #groceryForm="ngForm">
-          <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
-          <mat-form-field>
-            <textarea matInput placeholder="Grocery Item" [ngModel]="grocery?.name" ngModel #name="ngModel" id="name" name="name"></textarea>
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-            <textarea matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity"></textarea>
-          </mat-form-field>
-          <div class="form-group">
-            <div>
-                <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Submit</button>
+    <div id="styling">
+        <h1 id="groceryFormHeader">Manage Grocery</h1>
+        
+              <form class="example-container" (ngSubmit)="saveGrocery(groceryForm)"  #groceryForm="ngForm">
+                  <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
+                  <mat-form-field>
+                    <textarea matInput placeholder="Grocery Item" [ngModel]="grocery?.name" ngModel #name="ngModel" id="name" name="name"></textarea>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field>
+                    <textarea matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity"></textarea>
+                  </mat-form-field>
+                  <div class="form-group">
+                    <div>
+                        <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                  
+              </form>
             </div>
-          </div>
-          
-      </form>
+
     </div>
+    
     </section>
