@@ -13,24 +13,28 @@
 <br>
 <br>
 
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<div class=legend>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<a *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' : 'You have alerts to address'}}</a>
+<div *ngIf="alerts; else alertshow" class=legend>
   <div id="legendTitle" class="iconLegend" >
-    <p>Alerts</p>
   </div>
-  <div class="iconLegend">
+  <div *ngIf="count3 !== 0" class="iconLegend">
       <mat-icon svgIcon="red"></mat-icon>
       <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
   </div>
-  <div class="iconLegend">
+  <div *ngIf="count4 !== 0" class="iconLegend">
       <mat-icon svgIcon="black"></mat-icon>
       <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
   </div>
 </div>
+
+<ng-template #alertshow></ng-template>
 <br>
 <br>
-<div class=legend>
+
+<a (click)="key = !key">{{key ? 'Hide Key' : 'Show Key'}}</a>
+<div *ngIf="key; else keyshow" class=legend >
   <div id="legendTitle" class="iconLegend" >
     <p>Food Freshness Legend</p>
   </div>
@@ -51,6 +55,8 @@
       <p class="iconText">Food has gone bad. Past expiration date.</p>
   </div>
 </div>
+
+<!--<ng-template #keyshow>Alternate text while key text is hidden</ng-template>-->
 
 
 <div id="fridgeContent" class="content">
