@@ -1,0 +1,83 @@
+:host {
+    display: block;
+    background-image: url(../../assets/images/bg-pattern2.png);
+    /* background-size: cover; */
+    min-height: calc(100vh - 102px);
+    padding-bottom: 400px;
+}
+
+#addButton {
+
+    margin-left: 35px;
+    background-color: #fdb52f;
+    color: white;
+    font-family: cousine;
+    width: 200px;
+    height: 40px;
+    word-wrap: normal;
+}
+
+#searchDiv {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+label {
+    font-family: cousine;
+    font-size: 14px;
+}
+
+#fridgeContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fridge {
+    font-family: 'Lily Script One', cursive;
+    font-size: 80px;
+    color:hsla(125, 68%, 34%, 1.0);
+}
+
+input {
+    width: 85%;
+}
+
+
+#foodText {
+    font-family: 'Cousine';
+}
+
+#submitButton {
+    background-color: #fdb52f;
+    font-family: cousine;
+}
+
+/* this is not working. come back to this */
+/* #submitButton:hover {
+    background-color: #ffdd9f;
+    color: black;
+} */
+
+#searchResultsTable {
+    background-color: white;
+    font-family: cousine;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#selectButton {
+    background-color: rgba(27, 145, 37, 0.342);
+}
