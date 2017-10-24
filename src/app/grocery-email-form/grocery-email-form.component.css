@@ -23,27 +23,50 @@ select {
 
 }
 
-#sendForm{
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    height: 200px;
+
+
+#sendEmailButton{
+
+
+    background-color: #fdb52f;
+    color: white;
+    font-family: cousine;
+    width: 200px;
+    height: 40px;
+    word-wrap: normal;
 
 }
 
-#exitGroceryForm{
+#sendForm{
     display: flex;
-    justify-content: flex-end;
-
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
 }
 
 #emailSection{
+    
+    
     display: flex;
-    flex-flow: row;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center; 
+  
+    
+    }
 
-}
+    #exitGroceryForm{
+        
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        justify-content: flex-end;
+      
+        
+        }
 
-matDialogContainer{
-    padding-bottom: 100px;
-}
+        #exitButton{
+            border: none;
+            
+            
+        }

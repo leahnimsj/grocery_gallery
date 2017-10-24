@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Input, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatIconRegistry } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, MatInput } from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
