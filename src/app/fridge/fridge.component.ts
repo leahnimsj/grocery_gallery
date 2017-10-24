@@ -19,6 +19,7 @@ export class FridgeComponent implements OnInit {
 
   key;
   alerts;
+  keyshow;
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
