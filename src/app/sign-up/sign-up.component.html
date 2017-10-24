@@ -87,7 +87,6 @@
 </form> -->
 
 <form class="example-container" (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm">
-    <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
     <mat-form-field>
       <textarea matInput placeholder="First Name" ngModel #firstName="ngModel" ngModel id="firstName" name="firstName" required minlength="2" maxlength="255"></textarea>
       <span *ngIf="formErrors.firstName" class="text-danger">

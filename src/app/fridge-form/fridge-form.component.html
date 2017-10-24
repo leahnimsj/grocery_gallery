@@ -72,7 +72,7 @@
       <mat-form-field>
         <input matInput placeholder="Purchased Date" [ngModel]="fridge?.purchasedDate" ngModel #purchasedDate="ngModel" id="purchasedDate" name="purchasedDate" required />
         <mat-error>
-          <span *ngIf="formErrors.quantity" class="text-danger">
+          <span *ngIf="formErrors.purchasedDate" class="text-danger">
               {{ formErrors.purchasedDate }}
           </span>
         </mat-error>
