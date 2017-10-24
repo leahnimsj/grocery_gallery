@@ -14,18 +14,25 @@ button {
 
 }
 
-input {
-    font-family: 'Lily Script One', cursive;
+
+#sendEmailButton {
+    background-color: #fdb52f;
+    font-family: cousine;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    width: 200px;
+    height: 40px;
 }
 
-select {
-    font-family: 'Lily Script One', cursive;
-
+#sendEmailButton:hover {
+    background-color: #ffdd9f;
+    color: white;
 }
 
 
 
-#sendEmailButton{
+/* #sendEmailButton{
 
 
     background-color: #fdb52f;
@@ -35,7 +42,7 @@ select {
     height: 40px;
     word-wrap: normal;
 
-}
+} */
 
 #sendForm{
     display: flex;

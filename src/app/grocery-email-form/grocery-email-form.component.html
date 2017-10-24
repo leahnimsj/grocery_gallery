@@ -10,16 +10,17 @@
 
   <div id="emailSection" class="form-group emailtext">
    
-      <label for="quantity" class="col-sm-2 control-label">Email</label>
+      <label for="email" class="col-sm-2 control-label">Email</label>
       <mat-form-field>
-          <textarea matInput placeholder="youremail@email.com" id="name" name="name" required minlength="2" maxlength="255"></textarea>
+          <input [(ngModel)]="name" matInput placeholder="email@email.com" id="name" name="name" required minlength="2" maxlength="255" />
       </mat-form-field>
-
-      <button id="sendEmailButton" mat-raised-button [mat-dialog-close]="name">Send Email</button>
+      <mat-dialog-actions>
+        <button id="sendEmailButton" mat-raised-button [mat-dialog-close]="name">Send Email</button>
+      </mat-dialog-actions>
+      
    
   </div>
 </div>
-
 
 
 
