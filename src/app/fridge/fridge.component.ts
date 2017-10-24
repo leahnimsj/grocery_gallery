@@ -17,6 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export class FridgeComponent implements OnInit {
 
+  key;
+  alerts;
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
