@@ -1,10 +1,9 @@
 #fridgeFormHeader {
     font-family: 'Lily Script One', cursive;
-    font-size: 50px;
-}
-
-label {
-    font-family: 'Cousine';
+    font-size: 60px;
+    position: relative;
+    top: 30px;
+    left: 40px;
 }
 
 :host {
@@ -15,17 +14,10 @@ label {
     padding-bottom: 400px;
 }
 
-input {
-    font-family: 'Lily Script One', cursive;
-}
-
-select {
-    font-family: 'Lily Script One', cursive;
-
-}
-
 section {
-    width: 1000px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .example-container {
@@ -38,5 +30,32 @@ section {
   }
   
   .example-container > * {
-    width: 80%;
+    width: 90%;
   }
+
+  #submitButton {
+    background-color: #fdb52f;
+    font-family: cousine;
+}
+
+.mat-form-field {
+    font-family: cousine;
+    font-size: 15px;
+    position: none;
+
+}
+
+textarea {
+    line-height: 30px;
+}
+
+#styling {
+    background-color:rgba(252, 245, 236, 0.733);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 15px;
+}

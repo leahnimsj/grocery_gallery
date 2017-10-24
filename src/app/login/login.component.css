@@ -1,7 +1,3 @@
-input {
-    font-family: 'Lily Script One', cursive;
-}
-
 .example-container {
     display: flex;
     flex-direction: column;

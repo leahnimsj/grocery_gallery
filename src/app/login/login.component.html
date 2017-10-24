@@ -36,18 +36,23 @@
 <h1 id="signupheader" class="text-center">Log In</h1>
 <form class="example-container" (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm">
   <mat-form-field>
-    <textarea matInput placeholder="Email/Username" ngModel #email="ngModel" id="email" name="email" required></textarea>
-    <span *ngIf="formErrors.email" class="text-danger">
-      {{ formErrors.email }}
-    </span>
-  </mat-form-field>
+    <input matInput placeholder="Email/Username" ngModel #email="ngModel" id="email" name="email" required />
+    <mat-error>
+      <span *ngIf="formErrors.email" class="text-danger">
+        {{ formErrors.email }}
+      </span>
+    </mat-error>
+ </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput placeholder="Password" ngModel #password="ngModel" id="password" name="password" required></textarea>
-    <span *ngIf="formErrors.password"  class="text-danger">
-      {{ formErrors.password }}
-    </span>
+    <input matInput type="password" placeholder="Password" ngModel #password="ngModel" id="password" name="password" required />  
+    <mat-error>
+      <span *ngIf="formErrors.password"  class="text-danger">
+        {{ formErrors.password }}
+      </span>
+    </mat-error>
   </mat-form-field>
+  <br>
   <div class="form-group">
     <div>
         <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Log in</button>

@@ -1,13 +1,11 @@
 #groceryFormHeader {
     font-family: 'Lily Script One', cursive;
     font-size: 60px;
-    color: black;
-    margin-bottom: 40px;
+    position: relative;
+    top: 30px;
+    left: 40px;
 }
 
-label {
-    font-family: 'Cousine';
-}
 
 :host {
     display: block;
@@ -28,7 +26,7 @@ label {
   }
   
   .example-container > * {
-    width: 80%;
+    width: 90%;
   }
 
   #manageGrocery {
@@ -53,6 +51,13 @@ textarea {
     line-height: 30px;
 }
 
-#styling{
+#styling {
     background-color:rgba(252, 245, 236, 0.733);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 15px;
 }

@@ -12,11 +12,11 @@
   <br>
   <br>
   
-  <h1 id="fridgeFormHeader">Manage Fridge Item</h1>
+
   
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-  <form (ngSubmit)="saveFridge(fridgeForm)"  #fridgeForm="ngForm" class="form-horizontal">
+  <!-- <form (ngSubmit)="saveFridge(fridgeForm)"  #fridgeForm="ngForm" class="form-horizontal">
     <input [ngModel]="fridge?.id" ngModel #id="ngModel" type="hidden" name="id">
     <div class="form-group">
       <label for="name" class="col-sm-2 control-label">Fridge Item</label>
@@ -50,7 +50,51 @@
       <button type="submit" [disabled]="!fridgeForm.form.valid" class="btn btn-primary">Submit</button>
     </div>
   </div>
-  </form>
+  </form> -->
+
+  <h1 id="fridgeFormHeader">Manage Fridge Item</h1>
+  <div id="styling">
+
+
+    
+    <!-- angular materials form -->
+    <form class="example-container" (ngSubmit)="saveFridge(fridgeForm)"  #fridgeForm="ngForm">
+      <input [ngModel]="fridge?.id" ngModel #id="ngModel" type="hidden" name="id">
+      <mat-form-field>
+        <input matInput placeholder="Fridge Item" [ngModel]="fridge?.name" ngModel #name="ngModel" id="name" name="name" required minlength="2" maxlength="255" />
+        <mat-error>
+          <span *ngIf="formErrors.name" class="text-danger">
+              {{ formErrors.name }}
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Purchased Date" [ngModel]="fridge?.purchasedDate" ngModel #purchasedDate="ngModel" id="purchasedDate" name="purchasedDate" required />
+        <mat-error>
+          <span *ngIf="formErrors.quantity" class="text-danger">
+              {{ formErrors.purchasedDate }}
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Expiration Date" [ngModel]="fridge?.expirationDate" ngModel #expirationDate="ngModel" id="expirationDate" name="expirationDate" required />
+        <mat-error>
+          <span *ngIf="formErrors.expirationDate" class="text-danger">
+              {{ formErrors.expirationDate }}
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <div class="form-group">
+        <div>
+            <button id="submitButton" mat-raised-button type="submit" [disabled]="!fridgeForm.form.valid" class="btn btn-primary">Submit</button>
+        </div>
+      </div>     
+    </form>
+</div>
+  
 
   
 
