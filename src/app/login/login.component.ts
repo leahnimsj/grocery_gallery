@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild, Input }      from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, MatInput } from '@angular/material';
+
 
 import { DataService } from '../data.service';
 import { SessionDataService } from '../session-data.service';
@@ -48,7 +50,7 @@ export class LoginComponent implements OnInit {
             }, 
             error => {
               if(error.status == 403){
-                this.errorMessage = "Username/email and/or password are incorrect."
+                this.errorMessage = "Email/username and password combination are incorrect. Please try again."
               } else {
                 this.errorMessage = error.error
               }

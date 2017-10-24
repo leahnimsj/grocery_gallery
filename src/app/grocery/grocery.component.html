@@ -6,6 +6,9 @@
   <li class="active">Grocery List</li>
   <li><a routerLink="/grocery/add">Add Grocery Item</a></li>
 </ol> -->
+<div id="groceryContainer">
+
+
 <br>
 <br>
 <br>
@@ -17,6 +20,13 @@
     </div>  
       <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
   </div>
+
+  <div id="buttonDiv">
+      <button class="button" mat-raised-button routerLink="/grocery/add">Add Grocery Item</button>
+      
+      <button class="button" mat-raised-button (click)="openLoginModal()">Send Grocery List</button>
+  </div>
+  <br>
 
   <div class="foodTable">
     <table class="table table-bordered" id="dataTable" style="width:100%">
@@ -43,9 +53,8 @@
       </tbody>
     </table>
   </div>
+</div>
   
 
-  <a class="btn btn-primary" routerLink="/grocery/add">Add Grocery Item</a>
-
-  <a class="btn btn-primary" (click)="openLoginModal()">Send Grocery List</a>
+  
 

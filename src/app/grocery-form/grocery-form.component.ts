@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, MatInput } from '@angular/material';
@@ -33,7 +33,8 @@ export class GroceryFormComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,12 +48,19 @@ export class GroceryFormComponent implements OnInit {
     if(typeof grocery.value.id === "number"){
       this.dataService.editRecord("grocery", grocery.value, grocery.value.id)
           .subscribe(
-            fridge => this.successMessage = "Record updated succesfully",
+            fridge => {
+              this.successMessage = "Record updated succesfully",
+              this.router.navigate(['/grocery'])
+          },
             error =>  this.errorMessage = <any>error);
     }else{
       this.dataService.addRecord("grocery", grocery.value)
           .subscribe(
-            grocery => this.successMessage = "Record added succesfully",
+            grocery => {
+              this.successMessage = "Record added succesfully",
+              this.router.navigate(['/grocery'])
+            },
+
             error =>  this.errorMessage = <any>error);
             this.grocery = {};
     }

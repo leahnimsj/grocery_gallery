@@ -56,15 +56,22 @@
               <form class="example-container" (ngSubmit)="saveGrocery(groceryForm)"  #groceryForm="ngForm">
                   <input [ngModel]="grocery?.id" ngModel #id="ngModel" type="hidden" name="id">
                   <mat-form-field>
-                    <textarea matInput placeholder="Grocery Item" [ngModel]="grocery?.name" ngModel #name="ngModel" id="name" name="name"></textarea>
+                    <textarea matInput placeholder="Grocery Item" [ngModel]="grocery?.name" ngModel #name="ngModel" id="name" name="name" required minlength="2" maxlength="255"></textarea>
+                    <span *ngIf="formErrors.name" class="text-danger">
+                        {{ formErrors.name }}
+                    </span>
                   </mat-form-field>
                   <br>
                   <mat-form-field>
-                    <textarea matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity"></textarea>
+                    <textarea matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity" required></textarea>
+                    <span *ngIf="formErrors.quantity" class="text-danger">
+                        {{ formErrors.quantity }}
+                      </span>
                   </mat-form-field>
+
                   <div class="form-group">
                     <div>
-                        <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="submitButton" mat-raised-button type="submit" [disabled]="!groceryForm.form.valid" class="btn btn-primary">Submit</button>
                     </div>
                   </div>
                   

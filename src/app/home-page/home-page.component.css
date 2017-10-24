@@ -44,5 +44,5 @@ button:hover {
 #homepageContainer{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
 }

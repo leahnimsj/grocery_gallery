@@ -15,7 +15,7 @@
   <h1 id="fridgeFormHeader">Manage Fridge Item</h1>
   
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-  
+
   <form (ngSubmit)="saveFridge(fridgeForm)"  #fridgeForm="ngForm" class="form-horizontal">
     <input [ngModel]="fridge?.id" ngModel #id="ngModel" type="hidden" name="id">
     <div class="form-group">
@@ -51,6 +51,9 @@
     </div>
   </div>
   </form>
+
+  
+
   </section>
   
   

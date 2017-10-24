@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild }      from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, MatInput } from '@angular/material';
+
 
 import { DataService } from '../data.service';
 
@@ -72,7 +74,6 @@ export class FridgeFormComponent implements OnInit {
     this.route.params
     
     .subscribe((params: Params) => {
-      console.log(this.route.snapshot.routeConfig.path)
       if (this.route.snapshot.routeConfig.path.includes("edit")) {
         this.getRecordForEdit()
       } else if(this.route.snapshot.routeConfig.path.includes("search")) {
@@ -83,12 +84,6 @@ export class FridgeFormComponent implements OnInit {
       
     });
   }
-
-        // let blah = (+params['id']) ? this.getRecordForEdit() : null;
-      // if(blah == null){
-      //   // console.log("eric")
-      //   this.fridge.purchasedDate = this.getTodaysDate()
-    
 
   saveFridge(fridge: NgForm){
     if(typeof fridge.value.id === "number"){

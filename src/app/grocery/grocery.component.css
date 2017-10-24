@@ -54,3 +54,27 @@
     background-color: white;
     border: none;
 }
+
+#groceryContainer{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.button {
+    background-color: #fdb52f;
+    font-family: cousine;
+    border-radius: 10px;
+    color: black;
+}
+
+.button:hover {
+    background-color: #ffdd9f;
+    color: white;
+}
+
+#buttonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

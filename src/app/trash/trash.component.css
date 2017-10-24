@@ -52,3 +52,9 @@
     min-height: calc(100vh - 102px);
     padding-bottom: 400px;
 }
+
+#trashContainer {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
