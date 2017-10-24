@@ -1,2 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-form-field-underline, .mat-form-field-underline .mat-input-ripple {
+    background-color: black;
+}
+
+
+.mat-focused .mat-input-placeholder {
+    color: black;
+}
+
+/* leaving these incase we need to change colors */
+/* .mat-focused .mat-form-field-underline .mat-input-ripple{
+    color: green;
+} */
+
+
+/* .mat-input-invalid .mat-input-placeholder {
+    color: gold;
+} */
+
+/* .mat-input-placeholder {
+    color: cyan;
+} */
