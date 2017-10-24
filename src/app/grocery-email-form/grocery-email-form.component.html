@@ -7,16 +7,24 @@
 <br>
 <br>
 
-<div class="form-group emailtext">
-  <label for="quantity" class="col-sm-2 control-label">Email</label>
-  <div class="col-sm-10">
-    <input type="text" [(ngModel)]="name" placeholder="youremail@email.com">
-    <button mat-button [mat-dialog-close]="name">Send Email</button>
-    
-    <mat-dialog-actions>
-      <button mat-button mat-dialog-close class="btn btn-secondary">Exit Grocery Form</button>
+<div id="sendForm">
+  <div id="exitGroceryForm">
+  <mat-dialog-actions>
+      <button mat-button mat-dialog-close><mat-icon  svgIcon="cross-out" ></mat-icon></button>
     </mat-dialog-actions>
   </div>
+
+  <div id="emailSection" class="form-group emailtext">
+    <div>
+      <label for="quantity" class="col-sm-2 control-label">Email</label>
+    </div>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="name" placeholder="youremail@email.com">
+      <button mat-button [mat-dialog-close]="name">Send Email</button>
+    </div>
+  </div>
+
+
 </div>
 
 
