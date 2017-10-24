@@ -86,7 +86,7 @@ export class GroceryComponent implements OnInit {
   openLoginModal(){
 
     let dialogRef = this.dialog.open(GroceryEmailFormComponent, {
-      height: '400px',
+      height: '250px',
       width: '600px',
     });
 
