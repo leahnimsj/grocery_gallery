@@ -40,6 +40,7 @@ export class FridgeComponent implements OnInit {
     iconRegistry.addSvgIcon('green', sanitizer.bypassSecurityTrustResourceUrl('assets/images/cabbage.svg'))
     iconRegistry.addSvgIcon('alert', sanitizer.bypassSecurityTrustResourceUrl('assets/images/alert_warning.svg'))
     iconRegistry.addSvgIcon('cross-out', sanitizer.bypassSecurityTrustResourceUrl('assets/images/cross-out.svg'))
+    iconRegistry.addSvgIcon('groceries', sanitizer.bypassSecurityTrustResourceUrl('assets/images/groceries2.svg'))
   }
 
   ngOnInit() {

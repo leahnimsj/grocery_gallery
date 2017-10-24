@@ -13,101 +13,108 @@
 <br>
 <br>
 
-<div class="main">
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-<br>
-<br>
-<div id="warningheader">
-<div id="warningSection">&nbsp;<div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div><div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div></div>
-<div id="crossOut"><mat-icon svgIcon="cross-out" *ngIf="count4 !== 0 || count3 !== 0" (click)="closeWarning()"></mat-icon></div>
-</div>
-<div *ngIf="alerts; else alertshow" >
-  <div id="legendTitle" class="iconLegend" >
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+  <br>
+  <br>
+  <div id="warningheader">
+    <div id="warningSection">&nbsp;
+      <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
+      <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div>
+    </div>
+    <div id="crossOut">
+      <mat-icon svgIcon="cross-out" *ngIf="count4 !== 0 || count3 !== 0" (click)="closeWarning()"></mat-icon>
+    </div>
   </div>
-  <div *ngIf="count3 !== 0" class="iconLegend">
-      <mat-icon svgIcon="red"></mat-icon>
-      <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
+
+  <div *ngIf="alerts; else alertshow" >
+    <div id="legendTitle" class="iconLegend" ></div>
+    <div *ngIf="count3 !== 0" class="iconLegend">
+        <mat-icon svgIcon="red"></mat-icon>
+        <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
+    </div>
+    <div *ngIf="count4 !== 0" class="iconLegend">
+        <mat-icon svgIcon="black"></mat-icon>
+        <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
+    </div>
   </div>
-  <div *ngIf="count4 !== 0" class="iconLegend">
-      <mat-icon svgIcon="black"></mat-icon>
-      <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
-  </div>
-</div>
 
-<ng-template #alertshow></ng-template>
-<br>
-<br>
+  <ng-template #alertshow></ng-template>
+  <br>
+  <br>
 
-<div id="fridgeContent" class="content">
-  <div id="content">
-    <p id="fridge">Fridge/Pantry</p>
-    <p id="foodText">Manage your fridge inventory so that no food goes to waste!</p>
-  </div>  
-    <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
-</div>
+  <section id="contentSection">
+    <div id="fridgeContent" class="content">
+      <div id="content">
+        <p id="fridge">Fridge/Pantry</p>
+        <p id="foodText">Manage your fridge inventory so that no food goes to waste!</p>
+      </div>  
+        <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
+    </div>
 
 
-<div id="keySection">
-  <div id="addFridgeBar"> 
+    <div id="keySection">
+      <div id="addFridgeBar"> 
 
-      <a id="addFridgeButton" mat-raised-button class="btn btn-primary btn-right" routerLink="/fridge/search" >Add Fridge Item</a>
-      <a id=keylinktext (click)="key = !key">{{key ? 'Hide Key' : 'Click to show key'}}</a>
-  </div>
-  
-          <div *ngIf="key; else keyshow" class=legend id=legendSection >
-            <div id="legendTitle" class="iconLegend" >
-                <p>Food Freshness Legend</p>
-            </div>
-            <div class="iconLegend">
-                <mat-icon svgIcon="green"></mat-icon>
-                <p class="iconText">Food is fresh</p>
-            </div>
-            <div class="iconLegend">
-                  <mat-icon svgIcon="yellow"></mat-icon>
-                  <p class="iconText">Food is in the middle of it's life</p>
-            </div>
-            <div class="iconLegend">
-                  <mat-icon svgIcon="red"></mat-icon>
-                  <p class="iconText">Food is about to expire</p>
-            </div>
-            <div class="iconLegend">
-                  <mat-icon svgIcon="black"></mat-icon>
-                  <p class="iconText">Food has gone bad. Past expiration date.</p>
-            </div>
-          </div>
-</div> 
+          <button class="fridgeButtons" mat-raised-button routerLink="/fridge/search" >Add Fridge Item</button>
+          <button class="fridgeButtons" mat-raised-button (click)="key = !key">{{key ? 'Hide Key' : 'Click to show key'}}</button>
+      </div>
+      
+              <div *ngIf="key; else keyshow" class=legend id=legendSection >
+                <div id="legendTitle" class="iconLegend" >
+                    <p>Food Freshness Legend</p>
+                </div>
+                <div class="iconLegend">
+                    <mat-icon svgIcon="green"></mat-icon>
+                    <p class="iconText">Food is fresh</p>
+                </div>
+                <div class="iconLegend">
+                      <mat-icon svgIcon="yellow"></mat-icon>
+                      <p class="iconText">Food is in the middle of it's life</p>
+                </div>
+                <div class="iconLegend">
+                      <mat-icon svgIcon="red"></mat-icon>
+                      <p class="iconText">Food is about to expire</p>
+                </div>
+                <div class="iconLegend">
+                      <mat-icon svgIcon="black"></mat-icon>
+                      <p class="iconText">Food has gone bad. Past expiration date.</p>
+                </div>
+              </div>
+    </div> 
 
 
-<div id="foodTable" class="foodTable">
-  <table class="table table-bordered" id="dataTable" style="width:100%">
-    <thead>
-      <tr>
-        <th class="text-center">Food</th>
-        <th class="text-center">Freshness</th>
-        <th class="text-center">Expiration Date</th>
-        <th class="text-center">Manage</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let fridgeItem of fridgeItems">
-        <td class="text-center">{{fridgeItem.name}}</td>
-        <td class="text-center">
-          <mat-icon *ngIf="fridgeItem.level==1" svgIcon="green"></mat-icon>
-          <mat-icon *ngIf="fridgeItem.level==2" svgIcon="yellow"></mat-icon>
-          <mat-icon *ngIf="fridgeItem.level==3" svgIcon="red"></mat-icon>
-          <mat-icon *ngIf="fridgeItem.level==4" svgIcon="black"></mat-icon>
-        </td>
-        <td class="text-center">{{fridgeItem.expirationDate}}</td>
-        <td id="editButtons" class="text-center">
-          <button title="Edit food item" class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
-          <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
-          <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
-          <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
-          <button id="addGroceryButton" mat-raised-button (click)="openLoginModal(fridgeItem.id)">Add to grocery list</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <div id="foodTable" class="foodTable">
+      <table class="table table-bordered table-hover" id="dataTable" style="width:100%">
+        <thead>
+          <tr>
+            <th class="text-center">Food</th>
+            <th class="text-center">Freshness</th>
+            <th class="text-center">Expiration Date</th>
+            <th class="text-center">Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fridgeItem of fridgeItems">
+            <td class="text-center">{{fridgeItem.name}}</td>
+            <td class="text-center">
+              <mat-icon *ngIf="fridgeItem.level==1" svgIcon="green"></mat-icon>
+              <mat-icon *ngIf="fridgeItem.level==2" svgIcon="yellow"></mat-icon>
+              <mat-icon *ngIf="fridgeItem.level==3" svgIcon="red"></mat-icon>
+              <mat-icon *ngIf="fridgeItem.level==4" svgIcon="black"></mat-icon>
+            </td>
+            <td class="text-center">{{fridgeItem.expirationDate}}</td>
+            <td id="editButtons" class="text-center">
+              <button title="Edit food item" class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
+              <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
+              <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
+              <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
+              <button title="Add item to grocery list" class="manageButtons" (click)="openLoginModal(fridgeItem.id)"><mat-icon svgIcon="groceries"></mat-icon></button>
+              <!-- <button id="addGroceryButton" mat-raised-button (click)="openLoginModal(fridgeItem.id)">Add to grocery list</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-</div>
+
+  </section>
