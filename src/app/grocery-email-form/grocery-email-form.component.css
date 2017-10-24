@@ -22,3 +22,28 @@ select {
     font-family: 'Lily Script One', cursive;
 
 }
+
+#sendForm{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 200px;
+
+}
+
+#exitGroceryForm{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#emailSection{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between
+
+}
+
+matDialogContainer{
+    padding-bottom: 100px;
+}

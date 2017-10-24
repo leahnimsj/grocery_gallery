@@ -23,6 +23,7 @@ export class FridgeComponent implements OnInit {
   count3;
   count4;
   quantityRecord: string;
+  warningClose;
 
   constructor (
     private dataService: DataService, 
@@ -38,12 +39,22 @@ export class FridgeComponent implements OnInit {
     iconRegistry.addSvgIcon('remove', sanitizer.bypassSecurityTrustResourceUrl('assets/images/close.svg'))
     iconRegistry.addSvgIcon('green', sanitizer.bypassSecurityTrustResourceUrl('assets/images/cabbage.svg'))
     iconRegistry.addSvgIcon('alert', sanitizer.bypassSecurityTrustResourceUrl('assets/images/alert_warning.svg'))
+    iconRegistry.addSvgIcon('cross-out', sanitizer.bypassSecurityTrustResourceUrl('assets/images/cross-out.svg'))
   }
 
   ngOnInit() {
     this.displayFridgeItems(); 
     this.displayAlerts();
   }
+
+ 
+
+ closeWarning(){
+  this.warningClose = document.getElementById("warningheader");
+  this.warningClose.style.visibility = 'hidden'
+  console.log ("close warning")
+ }
+
 
 
   isNumber(val){
