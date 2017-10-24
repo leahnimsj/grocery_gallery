@@ -8,8 +8,8 @@
               <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/fridge">fridge & pantry</a></li>
               <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/grocery" >grocery</a></li>
               <li *ngIf="userLoggedIn" routerLinkActive="active"><a routerLink="/trash" >trash</a></li>
-              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/signup">Signup</a></li>
-              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/signup">Sign up</a></li>
+              <li *ngIf="!userLoggedIn" routerLinkActive="active"><a routerLink="/login">Log in</a></li>
               <li *ngIf="userLoggedIn"><a  (click)="logOut()">Logout</a></li>
           </ul>
       </div><!--/.nav-collapse -->
