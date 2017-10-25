@@ -79,7 +79,7 @@
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input matInput placeholder="Expiration Date" [ngModel]="fridge?.expirationDate" ngModel #expirationDate="ngModel" id="expirationDate" name="expirationDate" required />
+        <input matInput placeholder="Expiration Date" (blur)=checkExpirationDate($event.target.value) [ngModel]="fridge?.expirationDate" ngModel #expirationDate="ngModel" id="expirationDate" name="expirationDate" required />
         <mat-error>
           <span *ngIf="formErrors.expirationDate" class="text-danger">
               {{ formErrors.expirationDate }}

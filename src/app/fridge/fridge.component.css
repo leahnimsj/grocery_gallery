@@ -106,10 +106,7 @@
 }
 
 #warningheader{
-    background-color: rgba(241, 147, 147, 0.842);
-    line-height: 47px;
-    border-radius: 15px;
-    border: 1px solid #A02C2C;
+    border-radius: 5px;
     display: flex;
     align-items: center; 
     justify-content: space-between;
@@ -127,14 +124,15 @@
 }
 #alertslinktext{
     display: flex;
-    color: #F5ECEC;
+    color: #a94442;
     font-size: 13pt;
     font-family: 'cousine';
     vertical-align: middle;
 }
 
+
 #alertslinktext:hover  {
-color: #A02C2C;
+color: black;
 text-decoration-line: none;
 }
 
@@ -149,9 +147,8 @@ text-decoration-line: none;
 
 #crossOut:hover{
     background-color: white;
-    border-radius: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+    border-radius: 5px;
+    padding: 5px;
     text-decoration-line: none;
 }
 
@@ -166,7 +163,6 @@ text-decoration-line: none;
     align-items: center; 
   
 }
-
 
 
 
@@ -214,4 +210,20 @@ text-decoration-line: none;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+#optionsButton {
+    border: 1px solid #a9b1b9;
+    border-radius: 5px;
+    background-color: #ebf4f7;
+
+}
+
+#optionsButton:focus {
+    outline: 0;
+}
+
+#manageDiv {
+    border: none;
+    margin-left: 100px;
 }

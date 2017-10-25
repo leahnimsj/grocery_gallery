@@ -42,12 +42,15 @@ export class FridgeFormComponent implements OnInit {
   }
   
   checkExpirationDate(exDate){
-    let currentDate = this.getTodaysDate()
+    let currentDate = new Date(this.getTodaysDate())
+    let expirationDate = new Date(exDate)
     console.log(currentDate);
-    console.log(exDate);
-    if (exDate > currentDate)
-      return true;
+    console.log(expirationDate);
+    if (expirationDate < currentDate){
+      this.errorMessage = "Warning: expiration date has passed. Please review before adding to your fridge."
+    }
       
+
       
 
   }
@@ -95,7 +98,6 @@ export class FridgeFormComponent implements OnInit {
   }
 
   saveFridge(fridge: NgForm){
-    if(this.checkExpirationDate(this.fridge.expirationDate)){
       if(typeof fridge.value.id === "number"){
         this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
             .subscribe(
@@ -114,8 +116,6 @@ export class FridgeFormComponent implements OnInit {
               error =>  this.errorMessage = <any>error);
               this.fridge = {};
       }
-
-    } else { this.errorMessage = "Warning: expiration date has passed. Please review before adding to your fridge." }
     
   }
 

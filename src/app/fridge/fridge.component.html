@@ -15,7 +15,7 @@
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   <br>
   <div *ngIf="count4 !== 0 || count3 !== 0" id="warningAll">
-    <div id="warningheader">
+    <div id="warningheader" class="alert-danger alert">
       <div id="warningSection">&nbsp;
         <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
         <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address (click here)'}}</a></div>
@@ -62,7 +62,7 @@
             <div id="legendSection">
               <div *ngIf="key; else keyshow" class=legend >
                 <div id="legendTitle" class="iconLegend" >
-                    <p>Food Freshness Legend</p>
+                    <p>Food Freshness Key</p>
                 </div>
                 <div class="iconLegend">
                     <mat-icon svgIcon="green"></mat-icon>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="iconLegend">
                       <mat-icon svgIcon="black"></mat-icon>
-                      <p class="iconText">Food has gone bad. Past expiration date.</p>
+                      <p class="iconText">Food has gone bad - past expiration date</p>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@
             <th class="text-center">Food</th>
             <th class="text-center">Freshness</th>
             <th class="text-center">Expiration Date</th>
-            <th class="text-center">Manage</th>
+            <th class="text-center">Manage Food Item</th>
           </tr>
         </thead>
         <tbody>
@@ -107,12 +107,15 @@
             </td>
             <td class="text-center">{{fridgeItem.expirationDate}}</td>
             <td id="editButtons" class="text-center">
-              <button title="Edit food item" class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
-              <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
-              <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
-              <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
-              <button title="Add item to grocery list" class="manageButtons" (click)="openLoginModal(fridgeItem.id)"><mat-icon svgIcon="groceries"></mat-icon></button>
-              <!-- <button id="addGroceryButton" mat-raised-button (click)="openLoginModal(fridgeItem.id)">Add to grocery list</button> -->
+              <button id="optionsButton" (click)="manage = !manage">{{manage ? 'Minimize Options' : 'View Options'}}</button>
+              <div id="manageDiv" *ngIf="manage; else manageshow">
+                  <button title="Edit food item" class="manageButtons" routerLink="/fridge/edit/{{fridgeItem.id}}"><mat-icon svgIcon="edit"></mat-icon></button>
+                  <button title="Mark food item as finished/eaten" class="manageButtons" (click)="finishedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="complete"></mat-icon></button>
+                  <button title="Mark food item as wasted/expired" class="manageButtons" (click)="wastedFridgeItem(fridgeItem.id)"><mat-icon svgIcon="black"></mat-icon></button>
+                  <button title="Delete food item" class="manageButtons" (click)="deleteFridgeItem(fridgeItem.id)"><mat-icon svgIcon="remove"></mat-icon></button>
+                  <button title="Add item to grocery list" class="manageButtons" (click)="openLoginModal(fridgeItem.id)"><mat-icon svgIcon="groceries"></mat-icon></button>     
+              </div>
+
             </td>
           </tr>
         </tbody>
