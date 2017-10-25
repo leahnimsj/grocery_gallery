@@ -51,7 +51,6 @@ export class FridgeComponent implements OnInit {
   ngOnInit() {
     this.displayFridgeItems(); 
     this.displayAlerts();
-   // this.displayWarning();
   }
 
   displayWarning(){
@@ -68,8 +67,6 @@ export class FridgeComponent implements OnInit {
  closeWarning(){
   this.warningClose = document.getElementById("warningAll");
   this.warningClose.style.visibility = 'hidden'
- // this.warningClicked = true;
-  //console.log ("close warning boolean" + this.warningClicked)
  }
 
 
