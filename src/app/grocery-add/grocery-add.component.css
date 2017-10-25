@@ -1,0 +1,54 @@
+#allFields{
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+button {
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid;
+    font-family: cousine;
+}
+
+#fridgeGroceryFields{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    font-family: cousine;
+}
+
+#groceryQuantity{
+    width: 50px;
+    
+}
+
+#sendButton{
+    background-color: #fdb52f;
+    font-family: cousine;
+    border-radius: 10px;
+    margin-left: 20px;
+    border: none;
+    color: black;
+    width: 200px;
+    height: 40px;
+    
+}
+
+#sendButton:hover {
+    background-color: #ffdd9f;
+    color: white;
+}
+
+
+#exitButton{
+    border: none;
+    
+    
+}
+
+#exitFridgeGroceryForm{
+display: flex;
+align-items: top; 
+justify-content: flex-end;
+}
