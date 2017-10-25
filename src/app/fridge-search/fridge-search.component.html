@@ -22,10 +22,6 @@
       <label for="searchTerm" class="col-sm-2 control-label">Fridge/Pantry Item:</label>
       <div class="col-sm-10">
         <input ngModel #searchTerm="ngModel" [ngModel]="foodItem" type="text" class="form-control" id="searchTerm" name="searchTerm" placeholder="Banana" required >
-        <!-- below code is for validations, if we want to add them -->
-        <!-- <span *ngIf="formErrors.searchTerm" class="text-danger">
-          {{ formErrors.searchTerm }}
-        </span> -->
       </div>
     </div>
     <div class="col-sm-offset-2 col-sm-10">

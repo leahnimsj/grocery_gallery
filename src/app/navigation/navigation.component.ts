@@ -12,9 +12,7 @@ export class NavigationComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-
   logout;
-
   userLoggedIn: boolean;
   // declare dataService so that once dataService is injected and runs its own constructor, we can create a copy in this component (however, can also do this using private in constructor)
   // dataService: SessionDataService;
@@ -27,7 +25,6 @@ export class NavigationComponent implements OnInit {
   ) { 
     this.dataService.userChanged.subscribe(isLoggedIn => {
       (this.userLoggedIn = isLoggedIn)
-      console.log(isLoggedIn)
     }
     )
     

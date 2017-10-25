@@ -15,17 +15,13 @@ export class SignUpComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-
   signUpForm: NgForm;
-
-  @ViewChild('signUpForm') currentForm: NgForm;
-
-
   password;
   confirmPassword;
   passwordError;
-
   signUp;
+
+  @ViewChild('signUpForm') currentForm: NgForm;
 
   constructor(
     private dataService: DataService,
@@ -36,7 +32,6 @@ export class SignUpComponent implements OnInit {
   }
 
   
-
   checkPassword(password, confirmPassword){
     if(password === confirmPassword){
       return true
@@ -63,10 +58,7 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  clickButtonConsole(signUp: NgForm){
-    console.log(signUp.value)
-
-  }
+  // form code
 
   ngAfterViewChecked() {
     this.formChanged();

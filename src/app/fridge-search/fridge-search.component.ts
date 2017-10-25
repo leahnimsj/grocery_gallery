@@ -14,6 +14,7 @@ import { DataService } from '../data.service';
 
 
 export class FridgeSearchComponent implements OnInit {
+  
   foodItem = "";
 
   foodItems: any[];
@@ -24,7 +25,6 @@ export class FridgeSearchComponent implements OnInit {
     private route: ActivatedRoute,
     public iconRegistry: MatIconRegistry, 
     private sanitizer: DomSanitizer
-
   ) {
     iconRegistry.addSvgIcon('select', sanitizer.bypassSecurityTrustResourceUrl('assets/images/verification.svg'))
    }
@@ -38,13 +38,11 @@ export class FridgeSearchComponent implements OnInit {
   }
 
   searchFood(search: NgForm){
-    console.log(search.value.searchTerm)
       this.dataService.getFoodSearch(search.value.searchTerm)
           .subscribe(
             foodItems => this.foodItems = foodItems,
             
             error => {
-              console.log(error)
               if(error.includes("500")){
                 this.errorMessage = "Food item not found.  Please refine your search."
               } else {

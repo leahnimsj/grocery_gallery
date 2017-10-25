@@ -16,19 +16,10 @@ export class GroceryFormComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-
   grocery;
-
-
   groceryForm: NgForm;
 
   @ViewChild('groceryForm') currentForm: NgForm;
-
-  getRecordForEdit(){
-    this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("grocery", +params['id']))
-      .subscribe(grocery => this.grocery = grocery);
-  }
 
   constructor(
     private dataService: DataService,
@@ -43,6 +34,17 @@ export class GroceryFormComponent implements OnInit {
       (+params['id']) ? this.getRecordForEdit() : null;
     });
   }
+
+  // method to get data to populate grocery for for editing
+
+  getRecordForEdit(){
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("grocery", +params['id']))
+      .subscribe(grocery => this.grocery = grocery);
+  }
+
+
+  // methods for adding and editing grocery records
 
   saveGrocery(grocery: NgForm){
     if(typeof grocery.value.id === "number"){
@@ -66,6 +68,8 @@ export class GroceryFormComponent implements OnInit {
     }
 
   }
+
+  // form code below
 
   ngAfterViewChecked() {
     this.formChanged();

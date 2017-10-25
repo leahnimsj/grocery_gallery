@@ -116,11 +116,7 @@ export class FridgeComponent implements OnInit {
           width: '800px',
         });
     
-    // need to figure out how to get id here.....
-    
         dialogRef.afterClosed().subscribe(result => {
-          console.log(result);
-    
           if (result){
             this.quantityRecord = '{"quantity": "' + result + '"}'
             this.moveFridgeToGrocery(id, this.quantityRecord);
@@ -138,7 +134,7 @@ export class FridgeComponent implements OnInit {
         .subscribe(
           result => {
             this.successMessage = "Fridge/pantry item added to grocery list!"; 
-            // this.displayFridgeItems();
+            this.displayFridgeItems();
           },
           error => this.errorMessage = <any>error
         );
@@ -148,7 +144,10 @@ export class FridgeComponent implements OnInit {
       
          this.dataService.deleteRecord("fridge", id)
            .subscribe(
-             item => {this.successMessage = "Fridge/pantry item deleted."; this.displayFridgeItems(); },
+             item => {
+               this.successMessage = "Fridge/pantry item deleted."; 
+              this.displayFridgeItems();
+            },
              error =>  this.errorMessage = <any>error);
        }
 
@@ -157,7 +156,8 @@ export class FridgeComponent implements OnInit {
       .subscribe(
         item => {
           this.successMessage = "Fridge/pantry item thrown in wasted trash bin."; 
-          this.displayFridgeItems(); },
+          this.displayFridgeItems(); 
+        },
         error =>  this.errorMessage = <any>error);
     }
 

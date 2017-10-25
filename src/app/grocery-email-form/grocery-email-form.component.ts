@@ -11,7 +11,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class GroceryEmailFormComponent implements OnInit {
 
   name;
-
   sharedEmail = 'go@gmail.com'; 
 
   constructor(

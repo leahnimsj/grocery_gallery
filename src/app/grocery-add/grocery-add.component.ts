@@ -11,7 +11,6 @@ import { MatFormFieldModule, MatInputModule, MatFormFieldControl, MatFormField, 
 export class GroceryAddComponent implements OnInit {
 
   quantity;
-  
   quantityForm: NgForm;
   
   @ViewChild('quantityForm') currentForm: NgForm;
@@ -26,6 +25,8 @@ export class GroceryAddComponent implements OnInit {
     this.formChanged();
   }
 
+  // form code
+  
   formChanged() {
     //if the form didn't change then do nothing
     if (this.currentForm === this.quantityForm) { return; }

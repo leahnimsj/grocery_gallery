@@ -18,62 +18,9 @@ export class FridgeFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
   fridge: any = {};
-
-
   fridgeForm: NgForm;
 
   @ViewChild('fridgeForm') currentForm: NgForm;
-
-  getTodaysDate(){
-    let today = new Date();
-    let dd:any = today.getDate();
-    let mm:any = today.getMonth()+1; //January is 0!
-    let yyyy = today.getFullYear();
-    
-    if(dd<10) {
-        dd = '0'+dd
-    } 
-    
-    if(mm<10) {
-        mm = '0'+mm
-    } 
-    
-    return yyyy + '-' + mm + '-' + dd
-  }
-  
-  checkExpirationDate(exDate){
-    let currentDate = new Date(this.getTodaysDate())
-    let expirationDate = new Date(exDate)
-    console.log(currentDate);
-    console.log(expirationDate);
-    if (expirationDate < currentDate){
-      this.errorMessage = "Warning: expiration date has passed. Please review before adding to your fridge."
-    }
-      
-
-      
-
-  }
-
-  getRecordForEdit(){
-    this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("fridge", +params['id']))
-      .subscribe(fridge => {this.fridge = fridge});
-  }
-
-  getSearchforAdd(){
-
-    this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("search", +params['id']))
-      .subscribe(
-        fridge => {
-          this.fridge = fridge
-          this.fridge.purchasedDate = this.getTodaysDate()
-        }
-      );
-    
-  }
-
 
   constructor(
     private dataService: DataService,
@@ -97,6 +44,57 @@ export class FridgeFormComponent implements OnInit {
     });
   }
 
+  // date methods
+
+  getTodaysDate(){
+    let today = new Date();
+    let dd:any = today.getDate();
+    let mm:any = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
+    
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+    
+    return yyyy + '-' + mm + '-' + dd
+  }
+  
+  checkExpirationDate(exDate){
+    let currentDate = new Date(this.getTodaysDate())
+    let expirationDate = new Date(exDate)
+    if (expirationDate < currentDate){
+      this.errorMessage = "Warning: expiration date has passed. Please review before adding to your fridge."
+    } 
+
+  }
+
+  // get methods for populating form via edit or food item search
+
+  getRecordForEdit(){
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("fridge", +params['id']))
+      .subscribe(fridge => {this.fridge = fridge});
+  }
+
+  getSearchforAdd(){
+
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("search", +params['id']))
+      .subscribe(
+        fridge => {
+          this.fridge = fridge
+          this.fridge.purchasedDate = this.getTodaysDate()
+        }
+      );
+    
+  }
+
+  // method for adding and editing fridge records
+
   saveFridge(fridge: NgForm){
       if(typeof fridge.value.id === "number"){
         this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
@@ -118,6 +116,8 @@ export class FridgeFormComponent implements OnInit {
       }
     
   }
+
+  // below is form code
 
   ngAfterViewChecked() {
     this.formChanged();

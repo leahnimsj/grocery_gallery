@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   }
 
   saveLogin(login: NgForm){
-      console.log(login.value)
       this.dataService.addRecord("login", login.value)
           .subscribe(
             login => {
@@ -59,6 +58,8 @@ export class LoginComponent implements OnInit {
             this.login = {};
 
   }
+
+  // form methods
 
   ngAfterViewChecked() {
     this.formChanged();

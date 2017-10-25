@@ -26,13 +26,16 @@ export class GroceryComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
   groceryItems: any[];
+  emailRecord: string;
 
 
-
-  constructor (private dataService: DataService, private emailservice:EmailService, 
+  constructor (
+    private dataService: DataService, 
+    private emailservice:EmailService, 
     public dialog: MatDialog,
     public iconRegistry: MatIconRegistry, 
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer
+  ) {
       iconRegistry.addSvgIcon('complete', sanitizer.bypassSecurityTrustResourceUrl('assets/images/checked.svg'))
       iconRegistry.addSvgIcon('red', sanitizer.bypassSecurityTrustResourceUrl('assets/images/warning.svg'))
       iconRegistry.addSvgIcon('black', sanitizer.bypassSecurityTrustResourceUrl('assets/images/delete.svg'))
@@ -41,11 +44,10 @@ export class GroceryComponent implements OnInit {
       iconRegistry.addSvgIcon('fridge', sanitizer.bypassSecurityTrustResourceUrl('assets/images/fridgegrey.svg'))
     }
 
+
   ngOnInit() {
     this.displayGroceryItems(); 
   }
-
-
 
 
   displayGroceryItems() {
@@ -63,8 +65,6 @@ export class GroceryComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
- emailRecord: string;
-
 
   sendEmail(email:string) {
       var obj = JSON.parse(email);
@@ -75,6 +75,7 @@ export class GroceryComponent implements OnInit {
         );
      }
 
+    //  modal code
   openLoginModal(){
 
     let dialogRef = this.dialog.open(GroceryEmailFormComponent, {
@@ -83,17 +84,12 @@ export class GroceryComponent implements OnInit {
     });
 
 
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
 
       if (result){
         this.emailRecord = '{"email": "' + result + '"}'
         this.sendEmail(this.emailRecord);
       } 
-
-
-    
 
     })
 
