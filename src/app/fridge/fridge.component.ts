@@ -27,6 +27,8 @@ export class FridgeComponent implements OnInit {
   count4;
   quantityRecord: string;
   warningClose;
+  warningClicked = false;
+ 
 
   constructor (
     private dataService: DataService, 
@@ -49,14 +51,25 @@ export class FridgeComponent implements OnInit {
   ngOnInit() {
     this.displayFridgeItems(); 
     this.displayAlerts();
+   // this.displayWarning();
   }
 
- 
+  displayWarning(){
+    if(this.warningClicked){
+      this.closeWarning();
+    }
+
+    else{
+      this.displayAlerts()
+    }
+  }
+  
 
  closeWarning(){
-  this.warningClose = document.getElementById("warningheader");
+  this.warningClose = document.getElementById("warningAll");
   this.warningClose.style.visibility = 'hidden'
-  console.log ("close warning")
+ // this.warningClicked = true;
+  //console.log ("close warning boolean" + this.warningClicked)
  }
 
 

@@ -59,6 +59,13 @@
     padding-bottom: 400px;
 }
 
+#legendSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 5px;
+} 
+
 
 
 .legend {
@@ -153,13 +160,8 @@ text-decoration-line: none;
   
 }
 
-keySection{
-    display: flex;
-    flex-flow: column;
 
 
-
-}
 
 .fridgeButtons {
     
