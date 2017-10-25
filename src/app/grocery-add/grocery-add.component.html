@@ -1,7 +1,3 @@
-<br>
-<br>
-<br>
-<br>
 
 <div id="allFields" class="form-group emailtext">
 
@@ -11,11 +7,23 @@
     </mat-dialog-actions>
   </div> 
     
-  
-    <div id="fridgeGroceryFields">
-      <label for="quantity" class="col-sm-2 control-label">Quantity</label>
-      <input id="groceryQuantity" type="number" [(ngModel)]="quantity" placeholder="2"> 
-      <button id="sendButton" mat-button [mat-dialog-close]="quantity">Add to Grocery List</button>
-  </div>
  
+  <div id="fridgeGroceryFields">
+    <form class="example-container" #quantityForm="ngForm">
+        <mat-form-field>
+            <input matInput [(ngModel)]="quantity"  placeholder="Quantity" id="quantity" name="quantity" required pattern="^[1-9][0-9]*$" /> 
+            <mat-error>
+                <span *ngIf="formErrors.quantity" class="text-danger">
+                    {{ formErrors.quantity }}
+                </span>
+            </mat-error>
+          </mat-form-field>
+        <mat-dialog-actions>
+          <button id="sendButton" type="submit" [disabled]=!quantityForm.form.valid mat-raised-button [mat-dialog-close]="quantity">Add to Grocery List</button>
+        </mat-dialog-actions>
+    </form>
+    </div>
+
 </div>
+
+

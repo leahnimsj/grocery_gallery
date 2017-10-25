@@ -116,8 +116,8 @@ export class FridgeComponent implements OnInit {
   openLoginModal(id:number){
     
         let dialogRef = this.dialog.open(GroceryAddComponent, {
-          height: '400px',
-          width: '600px',
+          height: '250px',
+          width: '800px',
         });
     
     // need to figure out how to get id here.....

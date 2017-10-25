@@ -1,7 +1,10 @@
-#allFields{
+/* #allFields{
     flex-flow: column;
     justify-content: space-between;
-}
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+} */
 
 button {
     border-radius: 10px;
@@ -14,24 +17,21 @@ button {
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-family: cousine;
+    width: 300px;
 }
 
-#groceryQuantity{
-    width: 50px;
-    
-}
 
 #sendButton{
     background-color: #fdb52f;
     font-family: cousine;
     border-radius: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     border: none;
     color: black;
-    width: 200px;
-    height: 40px;
+    /* width: 200px;
+    height: 40px; */
     
 }
 
@@ -43,6 +43,9 @@ button {
 
 #exitButton{
     border: none;
+    padding-right: 0px;
+    margin-right: 0px;
+
     
     
 }
@@ -51,4 +54,21 @@ button {
 display: flex;
 align-items: top; 
 justify-content: flex-end;
+margin-bottom: 20px;
+margin-top: 0px;
+padding-top: 0px;
 }
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color:rgba(252, 245, 236, 0.733); */
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .example-container > * {
+    width: 90%;
+  }

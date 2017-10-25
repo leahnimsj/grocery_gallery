@@ -69,7 +69,8 @@
 
 
 .legend {
-    border: 1px solid;
+    border: 1px dotted;
+    background-color: white;
     border-radius: 15px;
     padding: 5px;
     width: 450px;
@@ -105,8 +106,10 @@
 }
 
 #warningheader{
-    background-color: #D36666;
+    background-color: rgba(241, 147, 147, 0.842);
     line-height: 47px;
+    border-radius: 15px;
+    border: 1px solid #A02C2C;
     display: flex;
     align-items: center; 
     justify-content: space-between;
@@ -138,13 +141,17 @@ text-decoration-line: none;
 #crossOut{
     display: flex;
     padding-bottom: 8px;
-    padding-right: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
 
    
 }
 
 #crossOut:hover{
     background-color: white;
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     text-decoration-line: none;
 }
 

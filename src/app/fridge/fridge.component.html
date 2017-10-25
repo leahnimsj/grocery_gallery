@@ -12,18 +12,16 @@
 <br>
 <br>
 <br>
-
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   <br>
-  <br>
-  <div id="warningAll">
+  <div *ngIf="count4 !== 0 || count3 !== 0" id="warningAll">
     <div id="warningheader">
       <div id="warningSection">&nbsp;
         <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
-        <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div>
+        <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address (click here)'}}</a></div>
       </div>
       <div id="crossOut">
-        <mat-icon svgIcon="cross-out" *ngIf="count4 !== 0 || count3 !== 0" (click)="closeWarning()"></mat-icon>
+        <mat-icon svgIcon="cross-out" (click)="closeWarning()"></mat-icon>
       </div>
     </div>
   
@@ -43,15 +41,13 @@
 
   <ng-template #alertshow></ng-template>
   <br>
-  <br>
-
   <section id="contentSection">
     <div id="fridgeContent" class="content">
       <div id="content">
         <p id="fridge">Fridge/Pantry</p>
         <p id="foodText">Manage your fridge inventory so that no food goes to waste!</p>
       </div>  
-        <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
+        <img id="foodImg" src="../../assets/images/newfridge.svg"/>
     </div>
 
 

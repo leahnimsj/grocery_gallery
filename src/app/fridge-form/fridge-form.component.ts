@@ -17,7 +17,6 @@ export class FridgeFormComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-
   fridge: any = {};
 
 
@@ -42,6 +41,16 @@ export class FridgeFormComponent implements OnInit {
     return yyyy + '-' + mm + '-' + dd
   }
   
+  checkExpirationDate(exDate){
+    let currentDate = this.getTodaysDate()
+    console.log(currentDate);
+    console.log(exDate);
+    if (exDate > currentDate)
+      return true;
+      
+      
+
+  }
 
   getRecordForEdit(){
     this.route.params
@@ -86,25 +95,28 @@ export class FridgeFormComponent implements OnInit {
   }
 
   saveFridge(fridge: NgForm){
-    if(typeof fridge.value.id === "number"){
-      this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
-          .subscribe(
-            fridge => {
-              this.successMessage = "Record updated succesfully";
-              this.router.navigate(['/fridge']);
-          },
-            error =>  this.errorMessage = <any>error);
-    }else{
-      this.dataService.addRecord("fridge", fridge.value)
-          .subscribe(
-            fridge => {
-              this.successMessage = "Record added succesfully";
-              this.router.navigate(['/fridge']);
-          },
-            error =>  this.errorMessage = <any>error);
-            this.fridge = {};
-    }
+    if(this.checkExpirationDate(this.fridge.expirationDate)){
+      if(typeof fridge.value.id === "number"){
+        this.dataService.editRecord("fridge", fridge.value, fridge.value.id)
+            .subscribe(
+              fridge => {
+                this.successMessage = "Record updated succesfully";
+                this.router.navigate(['/fridge']);
+            },
+              error =>  this.errorMessage = <any>error);
+      }else{
+        this.dataService.addRecord("fridge", fridge.value)
+            .subscribe(
+              fridge => {
+                this.successMessage = "Record added succesfully";
+                this.router.navigate(['/fridge']);
+            },
+              error =>  this.errorMessage = <any>error);
+              this.fridge = {};
+      }
 
+    } else { this.errorMessage = "Warning: expiration date has passed. Please review before adding to your fridge." }
+    
   }
 
   ngAfterViewChecked() {
