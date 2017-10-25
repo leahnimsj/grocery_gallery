@@ -111,6 +111,7 @@ export class GroceryFormComponent implements OnInit {
     },
     'quantity': {
       'required':  'Quantity is a required field.',
+      'pattern': 'Quantity must be greater than 0.'
     }
   };
 

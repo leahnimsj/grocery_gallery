@@ -18,7 +18,6 @@ import { GroceryComponent } from './grocery/grocery.component';
 import { GroceryFormComponent } from './grocery-form/grocery-form.component';
 import { TrashComponent } from './trash/trash.component';
 import { DataService } from './data.service';
-import { ManageFridgeComponent } from './manage-fridge/manage-fridge.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -41,7 +40,6 @@ import { GroceryAddComponent } from './grocery-add/grocery-add.component'; //add
     GroceryComponent,
     GroceryFormComponent,
     TrashComponent,
-    ManageFridgeComponent,
     HomePageComponent,
     LoginComponent,
     SignUpComponent,
@@ -71,7 +69,7 @@ import { GroceryAddComponent } from './grocery-add/grocery-add.component'; //add
   ],
 
   entryComponents: [
-    ManageFridgeComponent, GroceryEmailFormComponent, GroceryAddComponent
+    GroceryEmailFormComponent, GroceryAddComponent
   ],
 
 

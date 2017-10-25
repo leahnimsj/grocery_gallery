@@ -17,7 +17,7 @@
       <button class="button" mat-raised-button (click)="openLoginModal()">Send Grocery List</button>
   </div>
   <br>
-
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   <div class="foodTable">
     <table class="table table-bordered table-hover" id="dataTable" style="width:100%">
       <thead>

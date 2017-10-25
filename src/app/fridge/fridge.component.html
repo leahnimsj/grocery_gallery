@@ -1,21 +1,10 @@
-<!-- <br>
 <br>
 <br>
 <br>
 <br>
-<br>
-<ol class="breadcrumb">
-  <li class="active">Fridge Inventory</li>
-  <li><a routerLink="/fridge/add">Add Fridge Item</a></li>
-</ol> -->
-<br>
-<br>
-<br>
-<br>
-  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   <br>
   <div *ngIf="count4 !== 0 || count3 !== 0" id="warningAll">
-    <div id="warningheader" class="alert-danger alert">
+    <div *ngIf="count4 !== 0 || count3 !== 0" id="warningheader" class="alert-danger alert">
       <div id="warningSection">&nbsp;
         <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
         <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address (click here)'}}</a></div>
@@ -83,7 +72,7 @@
               </div>
             </div>
             
-    
+    <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
 
     <div id="foodTable" class="foodTable">

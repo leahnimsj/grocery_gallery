@@ -125,7 +125,7 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    getAlerts(level: string): Observable<any[]> {
+    getAlerts(level: string): Observable<any> {
         let apiUrl = this.alertUrl+level;
         console.log(apiUrl)
 

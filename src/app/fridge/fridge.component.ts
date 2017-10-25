@@ -23,8 +23,8 @@ export class FridgeComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   fridgeItems: any[];
-  count3;
-  count4;
+  count3 =0;
+  count4 =0;
   quantityRecord: string;
   warningClose;
   warningClicked = false;
@@ -51,7 +51,6 @@ export class FridgeComponent implements OnInit {
   ngOnInit() {
     this.displayFridgeItems(); 
     this.displayAlerts();
-   // this.displayWarning();
   }
 
   displayWarning(){
@@ -68,8 +67,6 @@ export class FridgeComponent implements OnInit {
  closeWarning(){
   this.warningClose = document.getElementById("warningAll");
   this.warningClose.style.visibility = 'hidden'
- // this.warningClicked = true;
-  //console.log ("close warning boolean" + this.warningClicked)
  }
 
 
@@ -141,7 +138,7 @@ export class FridgeComponent implements OnInit {
       this.dataService.moveFridgeRecord("grocery", id, obj)
         .subscribe(
           result => {
-            this.successMessage = "Record added to grocery list!"; 
+            this.successMessage = "Fridge/pantry item added to grocery list!"; 
             // this.displayFridgeItems();
           },
           error => this.errorMessage = <any>error
@@ -152,21 +149,23 @@ export class FridgeComponent implements OnInit {
       
          this.dataService.deleteRecord("fridge", id)
            .subscribe(
-             item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+             item => {this.successMessage = "Fridge/pantry item deleted."; this.displayFridgeItems(); },
              error =>  this.errorMessage = <any>error);
        }
 
     wastedFridgeItem(id:number) {
       this.dataService.manageFridgeRecord("waste", id)
       .subscribe(
-        item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+        item => {
+          this.successMessage = "Fridge/pantry item thrown in wasted trash bin."; 
+          this.displayFridgeItems(); },
         error =>  this.errorMessage = <any>error);
     }
 
     finishedFridgeItem(id:number) {
       this.dataService.manageFridgeRecord("finish", id)
       .subscribe(
-        item => {this.successMessage = "Record(s) deleted succesfully"; this.displayFridgeItems(); },
+        item => {this.successMessage = "Fridge/pantry item thrown in completed trash bin."; this.displayFridgeItems(); },
         error =>  this.errorMessage = <any>error);
     }
 }

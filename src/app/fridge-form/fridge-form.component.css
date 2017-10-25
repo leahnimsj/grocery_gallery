@@ -38,6 +38,10 @@ section {
     font-family: cousine;
 }
 
+#submitButton:focus {
+    outline: 0;
+}
+
 .mat-form-field {
     font-family: cousine;
     font-size: 15px;

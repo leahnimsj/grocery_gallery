@@ -64,7 +64,7 @@
                   </mat-form-field>
                   <br>
                   <mat-form-field>
-                    <input matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity" required />
+                    <input matInput placeholder="Quantity" [ngModel]="grocery?.quantity" ngModel #quantity="ngModel" id="quantity" name="quantity" required pattern="^[1-9][0-9]*$" />
                     <mat-error>
                       <span *ngIf="formErrors.quantity" class="text-danger">
                           {{ formErrors.quantity }}

@@ -18,6 +18,10 @@ button {
 
 }
 
+button:focus {
+    outline: 0;
+}
+
 button:hover {
     background-color: #ffdd9f;
     color: black;

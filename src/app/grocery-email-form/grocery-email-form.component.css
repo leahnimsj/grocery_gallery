@@ -32,18 +32,6 @@ button {
 
 
 
-/* #sendEmailButton{
-
-
-    background-color: #fdb52f;
-    color: white;
-    font-family: cousine;
-    width: 200px;
-    height: 40px;
-    word-wrap: normal;
-
-} */
-
 #sendForm{
     display: flex;
     flex-direction: column;
@@ -61,19 +49,23 @@ button {
     
     }
 
-    #exitGroceryForm{
-        
-        
-        display: flex;
-        justify-content: space-between;
-        align-items: center; 
-        justify-content: flex-end;
-      
-        
-        }
+#exitGroceryForm{
+    
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    justify-content: flex-end;
+    
+    
+    }
 
-        #exitButton{
-            border: none;
-            
-            
-        }
+#exitButton{
+    border: none;
+    
+    
+}
+
+p {
+    font-family: cousine;
+}

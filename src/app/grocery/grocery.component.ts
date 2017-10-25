@@ -59,17 +59,9 @@ export class GroceryComponent implements OnInit {
 
     this.dataService.deleteRecord("grocery", id)
       .subscribe(
-        grocery => {this.successMessage = "Record(s) deleted succesfully"; this.displayGroceryItems(); },
+        grocery => {this.successMessage = "Grocery item deleted."; this.displayGroceryItems(); },
         error =>  this.errorMessage = <any>error);
   }
-
-//commenting old sendGroceryToFridge logic
- // sendGroceryToFridge(id:number) {
-    // this.dataService.manageGroceryRecord("fridge", id)
-    //   .subscribe(
-    //     item => {this.successMessage = "Record(s) moved to fridge succesfully"; this.displayGroceryItems(); },
-    //     error =>  this.errorMessage = <any>error);
- // }
 
  emailRecord: string;
 
