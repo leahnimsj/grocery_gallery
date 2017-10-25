@@ -16,25 +16,28 @@
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   <br>
   <br>
-  <div id="warningheader">
-    <div id="warningSection">&nbsp;
-      <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
-      <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div>
+  <div id="warningAll">
+    <div id="warningheader">
+      <div id="warningSection">&nbsp;
+        <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
+        <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div>
+      </div>
+      <div id="crossOut">
+        <mat-icon svgIcon="cross-out" *ngIf="count4 !== 0 || count3 !== 0" (click)="closeWarning()"></mat-icon>
+      </div>
     </div>
-    <div id="crossOut">
-      <mat-icon svgIcon="cross-out" *ngIf="count4 !== 0 || count3 !== 0" (click)="closeWarning()"></mat-icon>
-    </div>
-  </div>
+  
 
-  <div *ngIf="alerts; else alertshow" >
-    <div id="legendTitle" class="iconLegend" ></div>
-    <div *ngIf="count3 !== 0" class="iconLegend">
-        <mat-icon svgIcon="red"></mat-icon>
-        <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
-    </div>
-    <div *ngIf="count4 !== 0" class="iconLegend">
-        <mat-icon svgIcon="black"></mat-icon>
-        <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
+    <div *ngIf="alerts; else alertshow" >
+      <div id="legendTitle" class="iconLegend" ></div>
+      <div *ngIf="count3 !== 0" class="iconLegend">
+          <mat-icon svgIcon="red"></mat-icon>
+          <p class="iconText">{{count3}} item(s) in your fridge are about to expire.</p>
+      </div>
+      <div *ngIf="count4 !== 0" class="iconLegend">
+          <mat-icon svgIcon="black"></mat-icon>
+          <p class="iconText">{{count4}} item(s) in your fridge have gone bad.</p>
+      </div>
     </div>
   </div>
 
@@ -52,14 +55,16 @@
     </div>
 
 
-    <div id="keySection">
+
       <div id="addFridgeBar"> 
 
           <button class="fridgeButtons" mat-raised-button routerLink="/fridge/search" >Add Fridge Item</button>
-          <button class="fridgeButtons" mat-raised-button (click)="key = !key">{{key ? 'Hide Key' : 'Click to show key'}}</button>
+            <button id="keyButton" class="fridgeButtons" mat-raised-button (click)="key = !key">{{key ? 'Hide Key' : 'Click to show key'}}</button>
       </div>
+   
       
-              <div *ngIf="key; else keyshow" class=legend id=legendSection >
+            <div id="legendSection">
+              <div *ngIf="key; else keyshow" class=legend >
                 <div id="legendTitle" class="iconLegend" >
                     <p>Food Freshness Legend</p>
                 </div>
@@ -80,7 +85,9 @@
                       <p class="iconText">Food has gone bad. Past expiration date.</p>
                 </div>
               </div>
-    </div> 
+            </div>
+            
+    
 
 
     <div id="foodTable" class="foodTable">
