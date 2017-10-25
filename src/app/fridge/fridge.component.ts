@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
-import { ManageFridgeComponent } from '../manage-fridge/manage-fridge.component';
 import { MatDialog, MatDialogConfig, MatDialogRef, MatIconModule, MatIconRegistry, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material'; //ruben added
 import { GroceryAddComponent } from '../grocery-add/grocery-add.component';
 
