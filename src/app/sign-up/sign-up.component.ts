@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
           this.signUp = {};
 
       } else {
-        this.passwordError = "Passwords don't match. Please try again."
+        this.errorMessage = "Passwords don't match. Please try again."
 
 
       } 

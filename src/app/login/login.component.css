@@ -29,7 +29,27 @@ textarea {
     line-height: 15px;
 }
 
-#signupheader {
+
+
+#login {
     font-family: 'Lily Script One', cursive;
-    font-size: 70px;
+    font-size: 80px;
+    color:hsla(125, 68%, 34%, 1.0);
+}
+
+#foodImg {
+    width: 400px;
+    height: 300px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#loginContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
 }

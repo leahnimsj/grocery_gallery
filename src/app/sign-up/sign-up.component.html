@@ -5,122 +5,67 @@
 <br>
 <br>
 <section>
-  
-
-
-
-
-<br>
-<br>
 
 <p id="passwordError">{{passwordError}}</p>
-<h1 id="signupheader" class="text-center">Create User</h1>
+
+
 
 
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-
-<!-- <form (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm" class="form-horizontal">
- 
-  <div class="form-group">
-      <label for="firstName" class="col-sm-2 control-label">First Name</label>
-      <div class="col-sm-10">
-        <input ngModel #firstName="ngModel" ngModel type="text" class="form-control" id="firstName" name="firstName"  placeholder="first name" required minlength="2" maxlength="255">
-        <span *ngIf="formErrors.firstName" class="text-danger">
-          {{ formErrors.firstName }}
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group">
-        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
-        <div class="col-sm-10">
-          <input ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName"  placeholder="last name" required minlength="2" maxlength="255" >
-          <span *ngIf="formErrors.lastName" class="text-danger">
-            {{ formErrors.lastName}}
-          </span>
-        </div>
-      </div>
-
-  <div class="form-group">
-    <label for="email" class="col-sm-2 control-label">Email / User Name</label>
-    <div class="col-sm-10">
-      <input ngModel #email="ngModel" type="text" class="form-control" id="email" name="email"  placeholder="e.g.  priya@gmail.com" required   required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-      <span *ngIf="formErrors.email" class="text-danger">
-        {{ formErrors.email}}
-      </span>
-    </div>
-  </div>
-
-  <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">New Password</label>
-      <div class="col-sm-10">
-        <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password" required minlength="6">
-        <span *ngIf="formErrors.password" class="text-danger">
-          {{ formErrors.password}}
-        </span>
-  
-      </div>
-    </div>
-
-    <div class="form-group">
-        <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
-        <div class="col-sm-10">
-          <input [(ngModel)]="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="6">
-          <span *ngIf="formErrors.confirmPassword" class="text-danger">
-            {{ formErrors.confirmPassword}}
-          </span>
-
-        </div>
-      </div>
-
-  <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" [disabled]="!signUpForm.form.valid" class="btn btn-primary">Submit</button>
-  </div>
-<br>
-<br>
-  <div class="col-sm-offset-2 col-sm-10">
-      <a type="button" class="btn btn-primary" routerLink="/home/">Back to home</a>
-    </div>
+<div id="signupContent" class="content">
+  <div id="content">
+    <p id="signup">Sign up</p>
+  </div>  
+    <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
 </div>
-</form> -->
 
 <form class="example-container" (ngSubmit)="sendSignUpForm(signUpForm)"  #signUpForm="ngForm">
     <mat-form-field>
-      <textarea matInput placeholder="First Name" ngModel #firstName="ngModel" ngModel id="firstName" name="firstName" required minlength="2" maxlength="255"></textarea>
-      <span *ngIf="formErrors.firstName" class="text-danger">
-          {{ formErrors.firstName }}
+      <input matInput placeholder="First Name" ngModel #firstName="ngModel" ngModel id="firstName" name="firstName" required minlength="2" maxlength="255" />
+      <mat-error>
+        <span *ngIf="formErrors.firstName" class="text-danger">
+            {{ formErrors.firstName }}
         </span>
+      </mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Last Name" ngModel #lastName="ngModel" ngModel id="lastName" name="lastName" required minlength="2" maxlength="255"></textarea>
-      <span *ngIf="formErrors.lastName" class="text-danger">
-          {{ formErrors.lastName}}
+      <input matInput placeholder="Last Name" ngModel #lastName="ngModel" ngModel id="lastName" name="lastName" required minlength="2" maxlength="255"/>
+      <mat-error>
+        <span *ngIf="formErrors.lastName" class="text-danger">
+            {{ formErrors.lastName}}
         </span>
+      </mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Email/Username" ngModel #email="ngModel" ngModel id="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></textarea>
-      <span *ngIf="formErrors.email" class="text-danger">
-          {{ formErrors.email}}
+      <input matInput placeholder="Email/Username" ngModel #email="ngModel" ngModel id="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+      <mat-error>
+        <span *ngIf="formErrors.email" class="text-danger">
+            {{ formErrors.email}}
         </span>
+      </mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Password" [(ngModel)]="password" ngModel id="password" name="password" required minlength="6"></textarea>
-      <span *ngIf="formErrors.password" class="text-danger">
+      <input matInput type=password placeholder="Password" [(ngModel)]="password" ngModel id="password" name="password" required minlength="6"/>
+      <mat-error>
+        <span *ngIf="formErrors.password" class="text-danger">
           {{ formErrors.password}}
         </span>
+      </mat-error> 
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Confirm Password" [(ngModel)]="confirmPassword" ngModel id="confirmPassword" name="confirmPassword" required minlength="6"></textarea>
-      <span *ngIf="formErrors.confirmPassword" class="text-danger">
+      <input matInput type=password placeholder="Confirm Password" [(ngModel)]="confirmPassword" ngModel id="confirmPassword" name="confirmPassword" required minlength="6"/>
+      <mat-error>
+        <span *ngIf="formErrors.confirmPassword" class="text-danger">
           {{ formErrors.confirmPassword}}
         </span>
+      </mat-error>
     </mat-form-field>
+    <br>
     <div class="form-group">
       <div>
           <button id="submitButton" mat-raised-button type="submit" class="btn btn-primary">Submit</button>

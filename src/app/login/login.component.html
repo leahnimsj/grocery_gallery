@@ -2,38 +2,17 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 
 <app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
 <section>
-<!-- <form (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm" class="form-horizontal">
-  <div class="form-group">
-    <label for="email" class="col-sm-2 control-label">E-mail/username</label>
-    <div class="col-sm-10">
-      <input ngModel #email="ngModel" type="text" class="form-control" id="email" name="email" placeholder="ljohnson14@gmail.com" required>
-      <span *ngIf="formErrors.email" class="text-danger">
-        {{ formErrors.email }}
-      </span>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="password" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input ngModel #password="ngModel" type="password" class="form-control" id="password" name="password" required>
-      <span *ngIf="formErrors.password"  class="text-danger">
-        {{ formErrors.password }}
-      </span>
-    </div>
-  </div>
-  <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">Submit</button>
-  </div>
-</div>
-</form> -->
 
-<h1 id="signupheader" class="text-center">Log In</h1>
+
+<div id="loginContent" class="content">
+  <div id="content">
+    <p id="login">Log in</p>
+  </div>  
+    <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
+</div>
 <form class="example-container" (ngSubmit)="saveLogin(loginForm)"  #loginForm="ngForm">
   <mat-form-field>
     <input matInput placeholder="Email/Username" ngModel #email="ngModel" id="email" name="email" required />
