@@ -17,9 +17,9 @@
   <br>
   <br>
   <div id="warningAll">
-    <div id="warningheader">
+    <div *ngIf="count4 !== 0 || count3 !== 0" id="warningheader">
       <div id="warningSection">&nbsp;
-        <div id="alertIcon"><mat-icon svgIcon="alert"></mat-icon></div>
+        <div id="alertIcon" *ngIf="count4 !== 0 || count3 !== 0"><mat-icon svgIcon="alert"></mat-icon></div>
         <div id="alertTextSection">&nbsp;<a id="alertslinktext" *ngIf="count4 !== 0 || count3 !== 0" (click)="alerts = !alerts">{{alerts ? 'Hide Alerts' :  'WARNING: you have alerts to address'}}</a></div>
       </div>
       <div id="crossOut">
