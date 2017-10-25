@@ -3,14 +3,19 @@
 <br>
 <br>
 
-<div class="form-group emailtext">
-  <label for="quantity" class="col-sm-2 control-label">Quantity</label>
-  <div class="col-sm-10">
-    <input type="number" [(ngModel)]="quantity" placeholder="2">
-    <button mat-button [mat-dialog-close]="quantity">Add to Grocery List</button>
-    
+<div id="allFields" class="form-group emailtext">
+
+  <div id="exitFridgeGroceryForm">
     <mat-dialog-actions>
-      <button mat-button mat-dialog-close class="btn btn-secondary">Exit Grocery Add Form</button>
+        <button id="exitButton" mat-button mat-dialog-close>x</button>
     </mat-dialog-actions>
+  </div> 
+    
+  
+    <div id="fridgeGroceryFields">
+      <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+      <input id="groceryQuantity" type="number" [(ngModel)]="quantity" placeholder="2"> 
+      <button id="sendButton" mat-button [mat-dialog-close]="quantity">Add to Grocery List</button>
   </div>
+ 
 </div>
