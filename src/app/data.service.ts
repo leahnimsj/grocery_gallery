@@ -121,8 +121,7 @@ export class DataService {
         let apiUrl = this.searchUrl+searchTerm;
 
         return this.http.get(apiUrl, this.options)
-            .map(this.extractData)
-            .catch(this.handleError);
+            .map(this.extractData);
     }
 
     getAlerts(level: string): Observable<any> {

@@ -14,7 +14,7 @@ import { DataService } from '../data.service';
 
 
 export class FridgeSearchComponent implements OnInit {
-  
+
   foodItem = "";
 
   foodItems: any[];
@@ -40,11 +40,14 @@ export class FridgeSearchComponent implements OnInit {
   searchFood(search: NgForm){
       this.dataService.getFoodSearch(search.value.searchTerm)
           .subscribe(
-            foodItems => this.foodItems = foodItems,
+            foodItems => {
+              this.foodItems = foodItems,
+              console.log(foodItems)
+            },
             
             error => {
-              if(error.includes("500")){
-                this.errorMessage = "Food item not found.  Please refine your search."
+              if(error.status == '500'){
+                this.errorMessage = "Food item not found.  Please refine your search or bypass to add manually."
               } else {
                 this.errorMessage = error.error
               }

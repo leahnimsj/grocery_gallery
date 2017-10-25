@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-<app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
+
 
 <div id="searchDiv">
 <div id="fridgeContent" class="content">
@@ -13,10 +13,11 @@
   </div>  
     <img id="foodImg" src="../../assets/images/ortaggi.svg"/>
 </div>
+<app-status-message [errorMessage]="errorMessage" [successMessage]="successMessage"></app-status-message>
+
 <button id="addButton" mat-raised-button routerLink="/fridge/add">Bypass Search</button>
 <br>
 <br>
-
 <form (ngSubmit)="searchFood(foodForm)"  #foodForm="ngForm" class="form-horizontal">
     <div class="form-group">
       <label for="searchTerm" class="col-sm-2 control-label">Fridge/Pantry Item:</label>
